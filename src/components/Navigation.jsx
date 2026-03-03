@@ -63,7 +63,7 @@ const Navigation = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/guess-the-movie" onClick={closeMenu}>
+              <NavLink to="/home-movie-section" onClick={closeMenu}>
                 Guess the movie
               </NavLink>
             </li>

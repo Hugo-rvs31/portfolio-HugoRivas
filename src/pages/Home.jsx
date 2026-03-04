@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navigation from "../components/Navigation";
+import Navigation from "../components/MainNavigation";
 import image1 from "../assets/img-home/landscape-1.jpg";
 import image2 from "../assets/img-home/landscape-2.jpg";
 import image3 from "../assets/img-home/landscape-3.jpg";

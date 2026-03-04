@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { RotateCcw } from "lucide-react";
-import Navigation from "../components/Navigation";
+import NavigationMovieSection from "../components/MainNavigation";
 import axios from "axios";
 
 const GuessTheMovie = () => {
@@ -192,7 +192,7 @@ const GuessTheMovie = () => {
   // -----------------------
   return (
     <div className="guess-the-movie">
-      <Navigation />
+      <NavigationMovieSection />
 
       <div className="container-guess-the-movie">
         <div className={`tier-banner ${tierMessage ? "show" : ""}`}>

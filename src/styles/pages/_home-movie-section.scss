@@ -1,4 +1,25 @@
-.home-movie-section {
-  background-color: red;
+.home {
+  position: relative;
+  width: 100vw;
   height: 100vh;
+  overflow: hidden;
+}
+
+.home-grid {
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-auto-rows: 140px;
+}
+
+.home-grid img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter: brightness(0.7);
 }

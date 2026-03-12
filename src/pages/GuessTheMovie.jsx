@@ -187,9 +187,6 @@ const GuessTheMovie = () => {
     }, 100);
   };
 
-  // -----------------------
-  // JSX
-  // -----------------------
   return (
     <div className="guess-the-movie">
       <NavigationMovieSection />

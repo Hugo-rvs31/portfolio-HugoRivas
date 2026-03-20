@@ -3,6 +3,16 @@ import { RotateCcw } from "lucide-react";
 import NavigationMovieSection from "../components/MainNavigation";
 import axios from "axios";
 
+// Import dynamique des 30 premières images
+const images = import.meta.glob(
+  "../assets/img-homeMovieSection/*.{jpg,png,jpeg}",
+  { eager: true },
+);
+const imageList = Object.entries(images)
+  .sort(([a], [b]) => a.localeCompare(b)) // tri par nom pour correspondre au JSON
+  .slice(0, 30)
+  .map(([, img]) => img.default);
+
 const GuessTheMovie = () => {
   const [films, setFilms] = useState([]);
   const [currentFilm, setCurrentFilm] = useState(null);
@@ -13,14 +23,13 @@ const GuessTheMovie = () => {
   const [isGameOver, setIsGameOver] = useState(false);
   const [usedFilms, setUsedFilms] = useState([]);
 
-  // Paliers / banner
   const [tierMessage, setTierMessage] = useState("");
   const [currentTier, setCurrentTier] = useState("");
   const tierTimeoutRef = useRef(null);
   const timerRef = useRef(null);
 
   // -----------------------
-  // Fonctions utilitaires
+  // Utilitaires
   // -----------------------
   const getPointsForCount = (count) => {
     if (count <= 20) return 1;
@@ -32,12 +41,12 @@ const GuessTheMovie = () => {
   };
 
   const getTierLabel = (count) => {
-    if (count <= 30) return "Palier 1 — 1 point";
-    if (count <= 40) return "Palier 2 — 2 points";
-    if (count <= 60) return "Palier 3 — 3 points";
-    if (count <= 80) return "Palier 4 — 4 points";
-    if (count <= 100) return "Palier 5 — 5 points";
-    return "Palier ultime — 10 points";
+    if (count <= 30) return "Tier 1 — 1 point";
+    if (count <= 40) return "Tier 2 — 2 points";
+    if (count <= 60) return "Tier 3 — 3 points";
+    if (count <= 80) return "Tier 4 — 4 points";
+    if (count <= 100) return "Tier 5 — 5 points";
+    return "Last tier — 10 points";
   };
 
   const showTierBanner = (text) => {
@@ -51,12 +60,14 @@ const GuessTheMovie = () => {
   // -----------------------
   useEffect(() => {
     axios
-      .get("/cinema-quiz/db-cinema.json")
+      .get("/src/data/movies.json")
       .then((response) => {
-        const filmsData = response.data.films;
-        if (Array.isArray(filmsData) && filmsData.length > 0) {
-          setFilms(filmsData);
-        }
+        const moviesData = response.data.movies.slice(0, 30);
+        const moviesWithImages = moviesData.map((movie, index) => ({
+          ...movie,
+          picture: imageList[index] || null,
+        }));
+        setFilms(moviesWithImages);
       })
       .catch((error) => console.error(error));
   }, []);
@@ -71,15 +82,12 @@ const GuessTheMovie = () => {
   }, [films]);
 
   // -----------------------
-  // Mise à jour du palier courant
+  // Mise à jour du palier
   // -----------------------
   useEffect(() => {
     setCurrentTier(getTierLabel(usedFilms.length));
   }, [usedFilms.length]);
 
-  // -----------------------
-  // Nettoyage timer
-  // -----------------------
   useEffect(() => {
     return () => {
       clearInterval(timerRef.current);
@@ -91,33 +99,30 @@ const GuessTheMovie = () => {
   // Quiz logic
   // -----------------------
   const initQuiz = (filmsList, usedList) => {
-    const availableFilms = filmsList.filter(
-      (film) => !usedList.some((u) => u.id === film.id),
-    );
+    const availableFilms = filmsList.filter((film) => !usedList.includes(film));
 
     if (availableFilms.length === 0) {
-      handleGameOver("🎉 Bravo ! Tous les films ont été trouvés !");
+      handleGameOver("🎉 Well done, all the films have been found!");
       return;
     }
 
     const randomFilm =
       availableFilms[Math.floor(Math.random() * availableFilms.length)];
 
+    // Générer les options : 3 mauvaises réponses + film courant
+    const wrongOptions = filmsList
+      .filter((film) => film !== randomFilm)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3);
+
+    const allOptions = [...wrongOptions, randomFilm].sort(
+      () => Math.random() - 0.5,
+    );
+
     setCurrentFilm(randomFilm);
-    setOptions(generateOptions(randomFilm, filmsList));
+    setOptions(allOptions);
     setTimeLeft(10);
     startTimer();
-  };
-
-  const generateOptions = (currentFilm, filmsList) => {
-    const wrongFilms = filmsList.filter((film) => film.id !== currentFilm.id);
-    const uniqueWrongFilms = Array.from(
-      new Map(wrongFilms.map((f) => [f.id, f])).values(),
-    );
-    const shuffled = [...uniqueWrongFilms].sort(() => Math.random() - 0.5);
-    const selectedWrong = shuffled.slice(0, 3);
-    const finalOptions = [...selectedWrong, currentFilm];
-    return finalOptions.sort(() => Math.random() - 0.5);
   };
 
   const startTimer = () => {
@@ -126,7 +131,7 @@ const GuessTheMovie = () => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(timerRef.current);
-          handleGameOver("⏰ Temps écoulé !");
+          handleGameOver("⏰ Time's up!");
           return 0;
         }
         return prev - 1;
@@ -150,17 +155,19 @@ const GuessTheMovie = () => {
       setUsedFilms(newUsed);
 
       if (before !== now) {
-        showTierBanner(`⭐ Nouveau palier ! ${getTierLabel(newCount)}`);
+        showTierBanner(`⭐ New tier ! ${getTierLabel(newCount)}`);
       }
 
-      setMessage(`✅ Bonne réponse ! +${now} point${now > 1 ? "s" : ""}`);
+      setMessage(`✅ Correct answer ! +${now} point${now > 1 ? "s" : ""}`);
 
       setTimeout(() => {
         setMessage("");
         initQuiz(films, newUsed);
       }, 900);
     } else {
-      handleGameOver(`❌ Mauvaise réponse. C'était "${currentFilm.title}".`);
+      handleGameOver(
+        `❌ Wrong answer. The correct answer was "${currentFilm.title}".`,
+      );
     }
   };
 
@@ -172,7 +179,6 @@ const GuessTheMovie = () => {
 
   const handleRestart = () => {
     clearInterval(timerRef.current);
-
     setIsGameOver(false);
     setScore(0);
     setMessage("");
@@ -181,7 +187,6 @@ const GuessTheMovie = () => {
     setOptions([]);
     setTimeLeft(10);
     setTierMessage("");
-
     setTimeout(() => {
       initQuiz(films, []);
     }, 100);
@@ -198,13 +203,13 @@ const GuessTheMovie = () => {
 
         <div className="tier-info">
           <div>
-            Films trouvés : <strong>{usedFilms.length}</strong>
+            Films found : <strong>{usedFilms.length}</strong>
           </div>
           <div className="tier-current">
-            Palier actuel : <strong>{currentTier}</strong>
+            Current tier : <strong>{currentTier}</strong>
           </div>
           <div>
-            Points par film :{" "}
+            Points per film :{" "}
             <strong>{getPointsForCount(usedFilms.length)}</strong>
           </div>
         </div>
@@ -212,12 +217,12 @@ const GuessTheMovie = () => {
         <div className="box-quiz">
           <p className="score">Score : {score}</p>
           <p className={`timer ${timeLeft <= 3 ? "urgent" : ""}`}>
-            Temps restant : {timeLeft}s
+            Time remaining : {timeLeft}s
           </p>
 
           <div className="quiz-image">
             {currentFilm && (
-              <img src={currentFilm.image} alt={currentFilm.title} />
+              <img src={currentFilm.picture} alt={currentFilm.title} />
             )}
           </div>
 
@@ -236,9 +241,7 @@ const GuessTheMovie = () => {
 
           {message && (
             <p
-              className={`quiz-message ${
-                message.includes("Bonne") ? "success" : "error"
-              }`}
+              className={`quiz-message ${message.includes("Bonne") ? "success" : "error"}`}
             >
               {message}
             </p>

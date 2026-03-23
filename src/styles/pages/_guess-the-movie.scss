@@ -2,7 +2,6 @@
   position: relative;
   min-height: 100vh;
 
-  // Damier noir/blanc en fond
   &::before {
     content: "";
     position: absolute;
@@ -10,227 +9,97 @@
     background-image:
       linear-gradient(45deg, #fff 25%, #57ecec 45%, #e23737 75%, #fff 75%),
       linear-gradient(45deg, #fff 25%, #000 25%, #000 75%, #fff 75%);
-    background-size: 40px 40px; // taille des cases
+    background-size: 40px 40px;
     background-position:
       0 0,
-      20px 20px; // pour créer le damier
-    opacity: 0.4; // ajustable
-    z-index: 0; // derrière le contenu
+      20px 20px;
+    opacity: 0.4;
+    z-index: 0;
   }
 
   .container-guess-the-movie {
     position: relative;
-    z-index: 1; // au-dessus du damier
+    z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
     text-align: center;
     margin: 0 auto;
     max-width: 800px;
+  }
 
-    h1 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
+  .start-screen {
+    background: #414040de;
+    color: white;
+    padding: 2rem;
+    border-radius: 1rem;
 
-    .box-quiz {
-      position: relative;
-      z-index: 2;
-      background: #414040de;
-      color: white;
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      .score {
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
-
-        @media (max-width: 641px) {
-          font-size: 1.1rem;
-        }
-      }
-
-      .level-message {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-        font-weight: bold;
-        color: #ffd700;
-      }
-
-      .timer {
-        font-size: 1.5rem;
-        color: #00ff88;
-        margin-bottom: 1rem;
-
-        @media (max-width: 641px) {
-          font-size: 1rem;
-        }
-
-        &.urgent {
-          color: #ff4040;
-          animation: blink 0.8s infinite alternate;
-        }
-      }
-
-      @keyframes blink {
-        from {
-          opacity: 1;
-        }
-        to {
-          opacity: 0.3;
-        }
-      }
-
-      .quiz-image img {
-        border-radius: 10px;
-        margin: 1rem 0;
-        object-fit: cover;
-        width: 500px;
-        height: 350px;
-
-        @media (max-width: 1200px) {
-          width: 400px;
-          height: 300px;
-        }
-        @media (max-width: 470px) {
-          width: 350px;
-          height: 270px;
-        }
-        @media (max-width: 370px) {
-          width: 320px;
-          height: 240px;
-        }
-      }
-
-      .quiz-options {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-
-        .quiz-button {
-          letter-spacing: 0.5px;
-          background: #444;
-          color: white;
-          border: none;
-          padding: 0.8rem 1.5rem;
-          border-radius: 8px;
-          cursor: pointer;
-          transition: background 0.2s ease;
-
-          &:hover {
-            background: #666;
-          }
-          &:disabled {
-            background: #222;
-            cursor: not-allowed;
-          }
-
-          @media (max-width: 530px) {
-            padding: 0.5rem 1.1rem;
-            font-size: 0.8rem;
-          }
-        }
-      }
-
-      .quiz-message {
-        margin-top: 1rem;
-        font-size: 1.2rem;
-
-        &.success {
-          color: #00ff88;
-          @media (max-width: 641px) {
-            font-size: 1rem;
-          }
-        }
-        &.error {
-          color: #ff4040;
-          @media (max-width: 641px) {
-            font-size: 1rem;
-          }
-        }
-      }
-
-      .end-block {
-        position: absolute;
-        top: 210px;
-        background: rgba(231, 132, 132, 0.384);
-        border-radius: 20px;
-        padding: 30px;
-
-        &:hover {
-          background: rgba(231, 132, 132, 0.719);
-        }
-
-        p {
-          margin: 5px 0;
-        }
-        .restart-button {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          margin-top: 1.5rem;
-          padding: 0.8rem 1.5rem;
-          border: none;
-          border-radius: 8px;
-          background: #e9907a;
-          color: white;
-          cursor: pointer;
-          transition: background 0.2s ease;
-
-          &:hover {
-            background-color: #0056b3;
-          }
-
-          svg {
-            transition: transform 0.3s;
-          }
-          &:hover svg {
-            transform: rotate(-90deg);
-          }
-        }
-
-        @media (max-width: 1200px) {
-          top: 185px;
-        }
-        @media (max-width: 641px) {
-          top: 170px;
-        }
-        @media (max-width: 470px) {
-          top: 150px;
-        }
-        @media (max-width: 370px) {
-          top: 135px;
-        }
-        @media (max-width: 239px) {
-          top: 135px;
-        }
-        @media (max-width: 217px) {
-          top: 155px;
-        }
-      }
-    }
-
-    .tier-info {
-      background: rgba(255, 255, 255, 0.671);
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      border: 2px solid rgba(225, 219, 240, 0.685);
-      padding: 5px 0;
-      border-radius: 20px;
-
-      @media (max-width: 530px) {
-        font-size: 0.9rem;
-      }
+    button {
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background: #e9907a;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
 
       &:hover {
-        background-color: white;
+        background: #0056b3;
       }
+    }
+  }
+
+  .box-quiz {
+    background: #414040de;
+    color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+
+    .timer.urgent {
+      color: red;
+      animation: blink 0.8s infinite alternate;
+    }
+
+    @keyframes blink {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0.3;
+      }
+    }
+
+    .quiz-image img {
+      width: 500px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+
+      button {
+        background: #444;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          background: #666;
+        }
+      }
+    }
+
+    .end-block {
+      margin-top: 20px;
+      padding: 20px;
+      background: rgba(231, 132, 132, 0.5);
+      border-radius: 10px;
     }
   }
 }

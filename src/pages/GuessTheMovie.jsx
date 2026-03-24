@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { RotateCcw } from "lucide-react";
-import NavigationMovieSection from "../components/MainNavigation";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import BackButton from "../components/BackButton";
 
 const GuessTheMovie = () => {
   const [films, setFilms] = useState([]);
@@ -15,6 +16,7 @@ const GuessTheMovie = () => {
   const [hasStarted, setHasStarted] = useState(false);
 
   const timerRef = useRef(null);
+  const navigate = useNavigate();
 
   // -----------------------
   // Chargement des films
@@ -22,10 +24,7 @@ const GuessTheMovie = () => {
   useEffect(() => {
     axios
       .get("/src/data/movies.json")
-      .then((response) => {
-        const moviesData = response.data.movies.slice(0, 30);
-        setFilms(moviesData);
-      })
+      .then((response) => setFilms(response.data.movies.slice(0, 30)))
       .catch((error) => console.error(error));
   }, []);
 
@@ -38,20 +37,16 @@ const GuessTheMovie = () => {
     }
   }, [films, hasStarted]);
 
-  const handleStart = () => {
-    setHasStarted(true);
-  };
+  useEffect(() => () => clearInterval(timerRef.current), []);
 
-  useEffect(() => {
-    return () => clearInterval(timerRef.current);
-  }, []);
+  const handleStart = () => setHasStarted(true);
 
   // -----------------------
   // Quiz logic
   // -----------------------
   const initQuiz = (filmsList, usedList) => {
     const availableFilms = filmsList.filter(
-      (film) => !usedList.some((f) => f.id === film.id), // ✅ FIX important
+      (film) => !usedList.some((f) => f.id === film.id),
     );
 
     if (availableFilms.length === 0) {
@@ -63,7 +58,7 @@ const GuessTheMovie = () => {
       availableFilms[Math.floor(Math.random() * availableFilms.length)];
 
     const wrongOptions = filmsList
-      .filter((film) => film.id !== randomFilm.id) // ✅ FIX important
+      .filter((film) => film.id !== randomFilm.id)
       .sort(() => Math.random() - 0.5)
       .slice(0, 3);
 
@@ -98,10 +93,8 @@ const GuessTheMovie = () => {
 
     if (title === currentFilm.title) {
       const newUsed = [...usedFilms, currentFilm];
-
       setScore((prev) => prev + 1);
       setUsedFilms(newUsed);
-
       setMessage("✅ Correct answer! +1 point");
 
       setTimeout(() => {
@@ -123,7 +116,6 @@ const GuessTheMovie = () => {
 
   const handleRestart = () => {
     clearInterval(timerRef.current);
-
     setIsGameOver(false);
     setScore(0);
     setMessage("");
@@ -131,16 +123,35 @@ const GuessTheMovie = () => {
     setCurrentFilm(null);
     setOptions([]);
     setTimeLeft(10);
+    setTimeout(() => initQuiz(films, []), 100);
+  };
 
-    setTimeout(() => {
-      initQuiz(films, []);
-    }, 100);
+  // -----------------------
+  // Back button handler
+  // -----------------------
+  const handleBack = () => {
+    console.log("Back button clicked"); // ✅ test du clic
+    navigate("/home-movie-section");
   };
 
   return (
-    <div className="guess-the-movie">
-      <NavigationMovieSection />
+    <div className="guess-the-movie" style={{ position: "relative" }}>
+      {/* ---------------- Back Button ---------------- */}
+      <div
+        style={{
+          position: "absolute",
+          top: "1rem",
+          left: "1rem",
+          zIndex: 1000,
+        }}
+      >
+        <BackButton
+          label="Back to Movies Section"
+          fallback="/home-movie-section"
+        />
+      </div>
 
+      {/* ---------------- Quiz Container ---------------- */}
       <div className="container-guess-the-movie">
         {!hasStarted ? (
           <div className="start-screen">
@@ -156,7 +167,6 @@ const GuessTheMovie = () => {
         ) : (
           <div className="box-quiz">
             <p className="score">Score : {score}</p>
-
             <p className={`timer ${timeLeft <= 3 ? "urgent" : ""}`}>
               Time remaining : {timeLeft}s
             </p>

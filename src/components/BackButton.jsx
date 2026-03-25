@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 const BackButton = ({
   label = "Back", // Texte du bouton
   fallback = "/", // Route si pas d'historique
-  style = {}, // Styles supplémentaires
 }) => {
   const navigate = useNavigate();
 
@@ -20,21 +19,12 @@ const BackButton = ({
   };
 
   return (
-    <button
-      type="button"
-      onClick={handleClick}
-      style={{
-        cursor: "pointer",
-        padding: "0.5rem 1rem",
-        fontSize: "1rem",
-        background: "#eee",
-        border: "1px solid #ccc",
-        borderRadius: "5px",
-        ...style,
-      }}
-    >
-      ← {label}
-    </button>
+    <div id="back-button">
+      <button className="back-button" type="button" onClick={handleClick}>
+        <span className="arrow">←</span>
+        <span className="label">{label}</span>
+      </button>
+    </div>
   );
 };
 

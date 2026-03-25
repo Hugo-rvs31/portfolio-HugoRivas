@@ -42,11 +42,9 @@ const MainNavigation = () => {
       {isOpen && (
         <nav className="navigation-inner">
           <ul>
-            <li>
-              <NavLink to="/home-movie-section" onClick={closeMenu}>
-                Movies Section
-              </NavLink>
-            </li>
+            <NavLink to="/home-movie-section" onClick={closeMenu}>
+              Movies Section
+            </NavLink>
           </ul>
         </nav>
       )}

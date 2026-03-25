@@ -23,16 +23,17 @@ const NavigationMovieSection = () => {
       {isOpen && (
         <nav className="navigation-inner-movie-section">
           <ul>
-            <li>
-              <NavLink to="/guess-the-movie" onClick={closeMenu}>
-                Guess the movie
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/movies-library" onClick={closeMenu}>
-                Movies Library
-              </NavLink>
-            </li>
+            <NavLink to="/guess-the-movie" onClick={closeMenu}>
+              Guess the movie
+            </NavLink>
+
+            <NavLink to="/movies-library" onClick={closeMenu}>
+              Movies Library
+            </NavLink>
+
+            <NavLink to="/#" onClick={closeMenu}>
+              Home
+            </NavLink>
           </ul>
         </nav>
       )}

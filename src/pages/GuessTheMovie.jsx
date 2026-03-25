@@ -135,23 +135,12 @@ const GuessTheMovie = () => {
   };
 
   return (
-    <div className="guess-the-movie" style={{ position: "relative" }}>
-      {/* ---------------- Back Button ---------------- */}
-      <div
-        style={{
-          position: "absolute",
-          top: "1rem",
-          left: "1rem",
-          zIndex: 1000,
-        }}
-      >
-        <BackButton
-          label="Back to Movies Section"
-          fallback="/home-movie-section"
-        />
-      </div>
+    <div className="guess-the-movie">
+      <BackButton
+        label="Back to Movies Section"
+        fallback="/home-movie-section"
+      />
 
-      {/* ---------------- Quiz Container ---------------- */}
       <div className="container-guess-the-movie">
         {!hasStarted ? (
           <div className="start-screen">

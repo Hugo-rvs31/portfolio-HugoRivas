@@ -17,7 +17,7 @@ const NavigationMovieSection = () => {
   return (
     <div className="navigation-movie-section">
       <div id="menu-button2" onClick={toggleMenu}>
-        {isOpen ? "Fermer" : "Menu"}
+        {isOpen ? "Close" : "Menu"}
       </div>
 
       {isOpen && (

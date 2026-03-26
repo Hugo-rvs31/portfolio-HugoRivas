@@ -1,0 +1,37 @@
+.clothing-store {
+  background: red;
+  height: 100vh;
+
+  header {
+    padding: 20px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .menu-left {
+      display: flex;
+
+      #menu {
+      }
+      .NameBrand {
+        h1 {
+          font-family: "Great Vibes", cursive;
+          font-size: 3rem;
+        }
+      }
+    }
+    .menu-right {
+      display: flex;
+
+      .search {
+        input {
+          border: none;
+          outline: none;
+          border-radius: 20px;
+          height: 40px;
+        }
+      }
+    }
+  }
+}

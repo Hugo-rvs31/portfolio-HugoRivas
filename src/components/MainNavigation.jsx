@@ -45,6 +45,9 @@ const MainNavigation = () => {
             <NavLink to="/home-movie-section" onClick={closeMenu}>
               Movies Section
             </NavLink>
+            <NavLink to="/clothing-store" onClick={closeMenu}>
+              Clothing Store
+            </NavLink>
           </ul>
         </nav>
       )}

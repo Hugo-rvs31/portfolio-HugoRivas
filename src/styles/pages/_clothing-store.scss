@@ -1,37 +1,235 @@
 .clothing-store {
-  background: red;
-  height: 100vh;
-
   header {
-    padding: 20px 20px;
+    top: 0;
+    position: fixed;
+    padding: 20px 40px;
+    width: 100vw;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    background: white;
+    border: 1px solid black;
+    height: 82px;
 
-    .menu-left {
+    .nav-fixed {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-      #menu {
+      .menu-left {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        #menu-drawer {
+          cursor: pointer;
+        }
+
+        .NameBrand {
+          h1 {
+            font-family: "Great Vibes", cursive;
+            font-size: 3rem;
+          }
+        }
       }
-      .NameBrand {
-        h1 {
-          font-family: "Great Vibes", cursive;
-          font-size: 3rem;
+
+      .menu-right {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        .divInputSearch1 {
+          position: relative;
+
+          input {
+            background: rgb(241, 241, 241);
+            border: none;
+            outline: none;
+            border-radius: 20px;
+            height: 40px;
+            padding: 0 15px;
+
+            &::-webkit-search-cancel-button,
+            &::-webkit-search-decoration,
+            &::-webkit-search-results-button,
+            &::-webkit-search-results-decoration {
+              display: none;
+            }
+          }
+
+          #iconSearch {
+            position: absolute;
+            right: 10px;
+          }
         }
       }
     }
-    .menu-right {
-      display: flex;
+  }
 
-      .search {
-        input {
+  /* DRAWER */
+  .drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+    background: white;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &.open {
+      transform: translateX(0);
+    }
+
+    .inner-drawer {
+      padding: 0 50px;
+
+      .up {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        height: 170px;
+        position: sticky;
+        top: 0;
+        background: white;
+        z-index: 10;
+        padding-bottom: 10px;
+        gap: 10px;
+
+        button {
+          background: white;
           border: none;
-          outline: none;
-          border-radius: 20px;
-          height: 40px;
+          font-size: 1.6rem;
+          color: grey;
+          cursor: pointer;
+        }
+        h2 {
+          text-align: center;
+          border-bottom: 2px solid black;
+        }
+        .divInputSearch2 {
+          margin-top: 20px;
+          border-bottom: 2px black solid;
+          width: 80%;
+          .inputSearch2 {
+            border: none;
+            outline: none;
+          }
         }
       }
+
+      .images-part {
+        margin-top: 20px;
+        display: flex;
+
+        img {
+          height: 170px;
+          width: 140px;
+          object-fit: cover;
+        }
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          letter-spacing: 3px;
+          list-style-type: none;
+          font-weight: bold;
+          font-size: 1.5rem;
+          font-family: "Bodoni Moda", Arial, Helvetica, sans-serif;
+          cursor: pointer;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 0%;
+            background-color: black;
+            transition: width 0.3s ease;
+          }
+
+          &:hover::before {
+            width: 22%;
+          }
+        }
+      }
+    }
+  }
+  .carousel-section {
+    height: 720px;
+    margin-top: 82px;
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+
+    .carousel-wrapper {
+      display: flex;
+      width: 300%; // 3 slides
+      transition: transform 1s ease-in-out;
+      height: 100%;
+    }
+
+    .each-part-carousel {
+      flex: 0 0 100%; // chaque slide prend 100%
+      display: flex;
+
+      height: 100%;
+
+      .big-image {
+        width: 50%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .carousel-image1 {
+        background-image: url("/src/assets/img-clothing-store/img-carousel-section/carousel-new-in1.jpg");
+      }
+      .carousel-image2 {
+        background-image: url("/src/assets/img-clothing-store/img-carousel-section/carousel-new-in2.jpg");
+      }
+      .carousel-image3 {
+        background-image: url("/src/assets/img-clothing-store/img-carousel-section/carousel-street-teen1.jpg");
+      }
+      .carousel-image4 {
+        background-image: url("/src/assets/img-clothing-store/img-carousel-section/carousel-street-teen2.jpg");
+      }
+      .carousel-image5 {
+        background-image: url("/src/assets/img-clothing-store/img-carousel-section/carousel-sport-casual1.jpg");
+      }
+      .carousel-image6 {
+        background-image: url("/src/assets/img-clothing-store/img-carousel-section/carousel-sport-casual2.jpg");
+      }
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 900;
+
+    &.show {
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 }

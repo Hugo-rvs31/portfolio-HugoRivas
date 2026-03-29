@@ -6,8 +6,8 @@
     width: 100vw;
     cursor: pointer;
     background: white;
-    border: 1px solid black;
-    height: 82px;
+
+    height: 100px;
 
     .nav-fixed {
       display: flex;
@@ -32,14 +32,18 @@
       }
 
       .menu-right {
+        width: 40%;
         display: flex;
         align-items: center;
         gap: 30px;
 
         .divInputSearch1 {
           position: relative;
+          width: 100%;
+          max-width: 350px;
 
           input {
+            width: 100%;
             background: rgb(241, 241, 241);
             border: none;
             outline: none;
@@ -56,9 +60,19 @@
           }
 
           #iconSearch {
+            height: 20px;
+            width: 20px;
+            color: rgb(73, 73, 73);
+            top: 50%;
+            transform: translateY(-50%);
             position: absolute;
             right: 10px;
           }
+        }
+        .three-icons {
+          display: flex;
+          gap: 20px;
+          color: rgb(73, 73, 73);
         }
       }
     }
@@ -74,7 +88,7 @@
     background: white;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
-    z-index: 1000;
+    z-index: 1000000;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
@@ -168,49 +182,98 @@
     }
   }
   .carousel-section {
+    cursor: pointer;
     height: 720px;
-    margin-top: 82px;
+    margin-top: 100px;
     overflow: hidden;
     position: relative;
     width: 100vw;
+    .three-dots-carousel {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      position: absolute;
+      z-index: 300000;
+      bottom: 50px;
+      gap: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30%;
+
+      span {
+        border-radius: 15px;
+        width: 15%;
+        height: 2px;
+        background: white;
+      }
+    }
+    .carousel-player {
+      padding: 8px 12px;
+      background: rgba(0, 0, 0, 0.432);
+      border-radius: 30px;
+      position: absolute;
+      right: -10px;
+      bottom: 40px;
+
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      z-index: 10;
+    }
+
+    .player-icon {
+      color: white;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+    }
+
+    .player-icon:hover {
+      transform: scale(1.2);
+    }
 
     .carousel-wrapper {
       display: flex;
-      width: 300%; // 3 slides
-      transition: transform 1s ease-in-out;
       height: 100%;
+
+      width: 400%;
+      transition: transform 1s ease-in-out;
     }
 
     .each-part-carousel {
-      flex: 0 0 100%; // chaque slide prend 100%
+      flex: 0 0 25%;
       display: flex;
-
       height: 100%;
 
       .big-image {
-        width: 50%;
+        position: relative;
+        flex: 0 0 50%;
         height: 100%;
+
         background-size: cover;
         background-position: center;
-      }
+        background-repeat: no-repeat;
 
-      .carousel-image1 {
-        background-image: url("/src/assets/img-clothing-store/img-carousel-section/carousel-new-in1.jpg");
-      }
-      .carousel-image2 {
-        background-image: url("/src/assets/img-clothing-store/img-carousel-section/carousel-new-in2.jpg");
-      }
-      .carousel-image3 {
-        background-image: url("/src/assets/img-clothing-store/img-carousel-section/carousel-street-teen1.jpg");
-      }
-      .carousel-image4 {
-        background-image: url("/src/assets/img-clothing-store/img-carousel-section/carousel-street-teen2.jpg");
-      }
-      .carousel-image5 {
-        background-image: url("/src/assets/img-clothing-store/img-carousel-section/carousel-sport-casual1.jpg");
-      }
-      .carousel-image6 {
-        background-image: url("/src/assets/img-clothing-store/img-carousel-section/carousel-sport-casual2.jpg");
+        .little-text-left {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          color: white;
+          position: absolute;
+          bottom: 40px;
+          left: 40px;
+          h3 {
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-size: 2rem;
+          }
+          p {
+            text-decoration: underline;
+            font-size: 0.8rem;
+          }
+        }
       }
     }
   }

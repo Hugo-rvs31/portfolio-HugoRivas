@@ -20,6 +20,28 @@ import img4 from "../assets/img-clothing-store/img-carousel-section/carousel-str
 import img5 from "../assets/img-clothing-store/img-carousel-section/carousel-sport-casual1.jpg";
 import img6 from "../assets/img-clothing-store/img-carousel-section/carousel-sport-casual2.jpg";
 
+import bags from "../assets/img-clothing-store/img-big-images-section/bags.jpg";
+import shoes from "../assets/img-clothing-store/img-big-images-section/shoes.jpg";
+import jackets from "../assets/img-clothing-store/img-big-images-section/jackets.jpg";
+import trousers from "../assets/img-clothing-store/img-big-images-section/trousers.jpg";
+import jeans1 from "../assets/img-clothing-store/img-big-images-section/jeans-1.jpg";
+import jeans2 from "../assets/img-clothing-store/img-big-images-section/jeans-2.jpg";
+import tops1 from "../assets/img-clothing-store/img-big-images-section/tops-1.jpg";
+import tops2 from "../assets/img-clothing-store/img-big-images-section/tops-2.jpg";
+
+import collectiveImage1 from "../assets/img-clothing-store/img-collective-section/img-collective-1.jpg";
+import collectiveImage2 from "../assets/img-clothing-store/img-collective-section/img-collective-2.jpg";
+import collectiveImage3 from "../assets/img-clothing-store/img-collective-section/img-collective-3.jpg";
+import collectiveImage4 from "../assets/img-clothing-store/img-collective-section/img-collective-4.jpg";
+import collectiveImage5 from "../assets/img-clothing-store/img-collective-section/img-collective-5.jpg";
+import collectiveImage6 from "../assets/img-clothing-store/img-collective-section/img-collective-6.jpg";
+import collectiveImage7 from "../assets/img-clothing-store/img-collective-section/img-collective-7.jpg";
+import collectiveImage8 from "../assets/img-clothing-store/img-collective-section/img-collective-8.jpg";
+import collectiveImage9 from "../assets/img-clothing-store/img-collective-section/img-collective-9.jpg";
+import collectiveImage10 from "../assets/img-clothing-store/img-collective-section/img-collective-10.jpg";
+import collectiveImage11 from "../assets/img-clothing-store/img-collective-section/img-collective-11.jpg";
+import collectiveImage12 from "../assets/img-clothing-store/img-collective-section/img-collective-12.jpg";
+
 const ClothingStore = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -97,7 +119,7 @@ const ClothingStore = () => {
                 type="search"
                 placeholder="Search by product, collection..."
               />
-              <Search id="iconSearch" />
+              <Search id="iconSearch1" />
             </div>
             <div className="three-icons">
               <User />
@@ -229,6 +251,7 @@ const ClothingStore = () => {
                 className="inputSearch2"
                 placeholder="SEARCH"
               />
+              <Search id="iconSearch2" />
             </div>
           </div>
           <div className="images-part">
@@ -258,14 +281,116 @@ const ClothingStore = () => {
       </div>
       {/* INFORMATIONS */}
       <div className="informations-1">
-        <h1>On 27.04 WE OPEN IN LONDON</h1>
+        <h2>On 27.04 WE OPEN IN LONDON</h2>
         <div className="text-informations">
           <p>
-            Visit us at the TRAFFORD CENTRE Shopping Centre and discover our
+            Visit us at the Clothing Store Shopping Centre and discover our
             latest collections.
           </p>
-          <h4>📍LOCAL LSU 4/5 & LSU 15 LEVEL 3 </h4>
+          <h4>📍LOCAL LSU 3/4 & LSU 12 LEVEL 2 </h4>
         </div>
+      </div>
+
+      <div className="big-images-section">
+        <div className="part part-1">
+          <div
+            className="big-image"
+            style={{ backgroundImage: `url(${bags})` }}
+          >
+            <div className="little-text-image">
+              <h3>BAGS</h3>
+              <p>VIEW ALL</p>
+            </div>
+          </div>
+          <div
+            className="big-image"
+            style={{ backgroundImage: `url(${shoes})` }}
+          >
+            <div className="little-text-image">
+              <h3>SHOES</h3>
+              <p>VIEW ALL</p>
+            </div>
+          </div>
+        </div>
+        <div className="part part-2">
+          <div
+            className="big-image jackets"
+            style={{ backgroundImage: `url(${jackets})` }}
+          >
+            <div className="little-text-image">
+              <h3>JACKETS</h3>
+              <p>VIEW ALL</p>
+            </div>
+          </div>
+          <div
+            className="big-image"
+            style={{ backgroundImage: `url(${trousers})` }}
+          >
+            <div className="little-text-image">
+              <h3>TROUSERS</h3>
+              <p>VIEW ALL</p>
+            </div>
+          </div>
+        </div>
+        <div className="inserted information">
+          <div className="text-left">D80 Barrel</div>
+          <div className="text-right">
+            <p>2026</p>
+            <p>
+              Spring-Summer <br /> Collection
+            </p>
+          </div>
+        </div>
+        <div className="part part-3">
+          <div
+            className="big-image"
+            style={{ backgroundImage: `url(${jeans1})` }}
+          >
+            <div className="little-text-image">
+              <h3>JEANS</h3>
+              <p>VIEW ALL</p>
+            </div>
+          </div>
+          <div
+            className="big-image"
+            style={{ backgroundImage: `url(${jeans2})` }}
+          ></div>
+        </div>
+        <div className="part part-4">
+          <div
+            className="big-image img-tops1"
+            style={{ backgroundImage: `url(${tops1})` }}
+          >
+            <div className="little-text-image">
+              <h3>TOPS & BODYSUITS</h3>
+              <p>VIEW ALL</p>
+            </div>
+          </div>
+          <div
+            className="big-image"
+            style={{ backgroundImage: `url(${tops2})` }}
+          ></div>
+        </div>
+      </div>
+
+      <div className="collective-section">
+        <div className="grid-section">
+          <div className="grid">
+            <img src={collectiveImage1} alt="" />
+            <img src={collectiveImage2} alt="" />
+            <img src={collectiveImage3} alt="" />
+            <img src={collectiveImage4} alt="" />
+            <img src={collectiveImage5} alt="" />
+            <img src={collectiveImage6} alt="" />
+            <img src={collectiveImage7} alt="" />
+            <img src={collectiveImage8} alt="" />
+            <img src={collectiveImage9} alt="" />
+            <img src={collectiveImage10} alt="" />
+            <img src={collectiveImage11} alt="" />
+            <img src={collectiveImage12} alt="" />
+          </div>
+        </div>
+        <div className="right-part-collective-section"></div>
       </div>
 
       {/* OVERLAY */}
@@ -278,3 +403,5 @@ const ClothingStore = () => {
 };
 
 export default ClothingStore;
+
+/*store   ·   Free home delivery on orders over £30 **   ·   Free delivery to store   ·   Free home delivery on orders over £30 **   ·   Free delivery to store   ·   Free home delivery on orders over £30 **   ·   */

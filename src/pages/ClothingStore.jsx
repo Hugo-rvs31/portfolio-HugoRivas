@@ -102,6 +102,42 @@ const ClothingStore = () => {
 
   return (
     <div className="clothing-store">
+      <div class="delivery-banner">
+        <div class="delivery-ticker">
+          <span>
+            · Free delivery to store · Free home delivery on orders over £30
+            ·{" "}
+          </span>
+          <span>
+            · Free delivery to store · Free home delivery on orders over £30
+            ·{" "}
+          </span>
+          <span>
+            · Free delivery to store · Free home delivery on orders over £30
+            ·{" "}
+          </span>
+          <span>
+            · Free delivery to store · Free home delivery on orders over £30
+            ·{" "}
+          </span>
+          <span>
+            · Free delivery to store · Free home delivery on orders over £30
+            ·{" "}
+          </span>
+          <span>
+            · Free delivery to store · Free home delivery on orders over £30
+            ·{" "}
+          </span>
+          <span>
+            · Free delivery to store · Free home delivery on orders over £30
+            ·{" "}
+          </span>
+          <span>
+            · Free delivery to store · Free home delivery on orders over £30
+            ·{" "}
+          </span>
+        </div>
+      </div>
       <header>
         <div className="nav-fixed">
           <div className="menu-left">
@@ -390,7 +426,16 @@ const ClothingStore = () => {
             <img src={collectiveImage12} alt="" />
           </div>
         </div>
-        <div className="right-part-collective-section"></div>
+        <div className="right-part-collective-section">
+          <h1>THE COLLECTIVE</h1>
+          <p>The Experiential Project by Stradivarius</p>
+          <h2>DISCOVER THE LOOKS</h2>
+        </div>
+      </div>
+
+      <div className="interactive-section">
+        <h1>LATEST NEWS FOR YOU</h1>
+        <div className="each-column-interactive"></div>
       </div>
 
       {/* OVERLAY */}
@@ -403,5 +448,3 @@ const ClothingStore = () => {
 };
 
 export default ClothingStore;
-
-/*store   ·   Free home delivery on orders over £30 **   ·   Free delivery to store   ·   Free home delivery on orders over £30 **   ·   Free delivery to store   ·   Free home delivery on orders over £30 **   ·   */

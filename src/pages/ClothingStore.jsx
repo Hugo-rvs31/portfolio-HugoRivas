@@ -42,6 +42,14 @@ import collectiveImage10 from "../assets/img-clothing-store/img-collective-secti
 import collectiveImage11 from "../assets/img-clothing-store/img-collective-section/img-collective-11.jpg";
 import collectiveImage12 from "../assets/img-clothing-store/img-collective-section/img-collective-12.jpg";
 
+import imgInteractiveHeels from "../assets/img-clothing-store/img-interactive-section/heels.jpg";
+import imgInteractiveSneakers from "../assets/img-clothing-store/img-interactive-section/sneakers.jpg";
+import imgInteractiveSandals from "../assets/img-clothing-store/img-interactive-section/sandals.jpg";
+import imgInteractiveJackets from "../assets/img-clothing-store/img-interactive-section/jacket.jpg";
+import imgInteractiveMiniShort from "../assets/img-clothing-store/img-interactive-section/mini-short.jpg";
+import imgInteractiveSummerDress from "../assets/img-clothing-store/img-interactive-section/summer-dress.jpg";
+import imgInteractiveTshirt from "../assets/img-clothing-store/img-interactive-section/t-shirt.jpg";
+
 const ClothingStore = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -435,7 +443,147 @@ const ClothingStore = () => {
 
       <div className="interactive-section">
         <h1>LATEST NEWS FOR YOU</h1>
-        <div className="each-column-interactive"></div>
+        <div className="carousel-interactive-section">
+          <div className="each-column-full">
+            <div className="each-column-interactive">
+              <img src={imgInteractiveHeels} alt="" />
+              <div className="overlay-sizes">
+                <h4>SIZES</h4>
+                <div className="choice-sizes">
+                  <span>2</span>
+                  <span>3</span>
+                  <span>4</span>
+                  <span>5</span>
+                  <span>6</span>
+                  <span>7</span>
+                  <span>8</span>
+                </div>
+              </div>
+            </div>
+            <div className="title-and-prices">
+              <h5>Shoes</h5>
+              <p className="price"></p>
+            </div>
+          </div>
+          <div className="each-column-full">
+            <div className="each-column-interactive">
+              <img src={imgInteractiveSandals} alt="" />
+              <div className="overlay-sizes">
+                <h4>SIZES</h4>
+                <div className="choice-sizes">
+                  <span>2</span>
+                  <span>3</span>
+                  <span>4</span>
+                  <span>5</span>
+                  <span>6</span>
+                  <span>7</span>
+                  <span>8</span>
+                </div>
+              </div>
+            </div>
+            <div className="title-and-prices">
+              <h5>Shoes</h5>
+              <p className="price"></p>
+            </div>
+          </div>
+          <div className="each-column-full">
+            <div className="each-column-interactive">
+              <img src={imgInteractiveSneakers} alt="" />
+              <div className="overlay-sizes">
+                <h4>SIZES</h4>
+                <div className="choice-sizes">
+                  <span>2</span>
+                  <span>3</span>
+                  <span>4</span>
+                  <span>5</span>
+                  <span>6</span>
+                  <span>7</span>
+                  <span>8</span>
+                </div>
+              </div>
+            </div>
+            <div className="title-and-prices">
+              <h5>Shoes</h5>
+              <p className="price"></p>
+            </div>
+          </div>
+          <div className="each-column-full">
+            <div className="each-column-interactive">
+              <img src={imgInteractiveJackets} alt="" />
+              <div className="overlay-sizes">
+                <h4>SIZES</h4>
+                <div className="choice-sizes">
+                  <span>XS</span>
+                  <span>S</span>
+                  <span>M</span>
+                  <span>L</span>
+                  <span>XL</span>
+                </div>
+              </div>
+            </div>
+            <div className="title-and-prices">
+              <h5>Shoes</h5>
+              <p className="price"></p>
+            </div>
+          </div>
+          <div className="each-column-full">
+            <div className="each-column-interactive">
+              <img src={imgInteractiveMiniShort} alt="" />
+              <div className="overlay-sizes">
+                <h4>SIZES</h4>
+                <div className="choice-sizes">
+                  <span>XS</span>
+                  <span>S</span>
+                  <span>M</span>
+                  <span>L</span>
+                  <span>XL</span>
+                </div>
+              </div>
+            </div>
+            <div className="title-and-prices">
+              <h5>Shoes</h5>
+              <p className="price"></p>
+            </div>
+          </div>
+          <div className="each-column-full">
+            <div className="each-column-interactive">
+              <img src={imgInteractiveSummerDress} alt="" />
+              <div className="overlay-sizes">
+                <h4>SIZES</h4>
+                <div className="choice-sizes">
+                  <span>XS</span>
+                  <span>S</span>
+                  <span>M</span>
+                  <span>L</span>
+                  <span>XL</span>
+                </div>
+              </div>
+            </div>
+            <div className="title-and-prices">
+              <h5>Shoes</h5>
+              <p className="price"></p>
+            </div>
+          </div>
+          <div className="each-column-full">
+            <div className="each-column-interactive">
+              <img src={imgInteractiveTshirt} alt="" />
+              <div className="overlay-sizes">
+                <h4>SIZES</h4>
+                <div className="choice-sizes">
+                  <span>XS</span>
+                  <span>S</span>
+                  <span>M</span>
+                  <span>L</span>
+                  <span>XL</span>
+                </div>
+              </div>
+            </div>
+            <div className="title-and-prices">
+              <h5>Shoes</h5>
+              <p className="price"></p>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* OVERLAY */}

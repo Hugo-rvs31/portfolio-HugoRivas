@@ -519,4 +519,34 @@
       }
     }
   }
+  .interactive-section {
+    h1 {
+    }
+    .carousel-interactive-section {
+      display: flex;
+      .each-column-full {
+        display: flex;
+        flex-direction: column;
+        width: 28%;
+        .each-column-interactive {
+          img {
+            object-fit: cover;
+          }
+          .overlay-sizes {
+            h4 {
+            }
+            .choice-sizes {
+            }
+          }
+        }
+        .title-and-prices {
+          h5 {
+          }
+
+          .price {
+          }
+        }
+      }
+    }
+  }
 }

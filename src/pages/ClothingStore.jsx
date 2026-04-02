@@ -19,7 +19,6 @@ import img3 from "../assets/img-clothing-store/img-carousel-section/carousel-str
 import img4 from "../assets/img-clothing-store/img-carousel-section/carousel-street-teen2.jpg";
 import img5 from "../assets/img-clothing-store/img-carousel-section/carousel-sport-casual1.jpg";
 import img6 from "../assets/img-clothing-store/img-carousel-section/carousel-sport-casual2.jpg";
-
 import bags from "../assets/img-clothing-store/img-big-images-section/bags.jpg";
 import shoes from "../assets/img-clothing-store/img-big-images-section/shoes.jpg";
 import jackets from "../assets/img-clothing-store/img-big-images-section/jackets.jpg";
@@ -28,7 +27,6 @@ import jeans1 from "../assets/img-clothing-store/img-big-images-section/jeans-1.
 import jeans2 from "../assets/img-clothing-store/img-big-images-section/jeans-2.jpg";
 import tops1 from "../assets/img-clothing-store/img-big-images-section/tops-1.jpg";
 import tops2 from "../assets/img-clothing-store/img-big-images-section/tops-2.jpg";
-
 import collectiveImage1 from "../assets/img-clothing-store/img-collective-section/img-collective-1.jpg";
 import collectiveImage2 from "../assets/img-clothing-store/img-collective-section/img-collective-2.jpg";
 import collectiveImage3 from "../assets/img-clothing-store/img-collective-section/img-collective-3.jpg";
@@ -41,7 +39,6 @@ import collectiveImage9 from "../assets/img-clothing-store/img-collective-sectio
 import collectiveImage10 from "../assets/img-clothing-store/img-collective-section/img-collective-10.jpg";
 import collectiveImage11 from "../assets/img-clothing-store/img-collective-section/img-collective-11.jpg";
 import collectiveImage12 from "../assets/img-clothing-store/img-collective-section/img-collective-12.jpg";
-
 import imgInteractiveHeels from "../assets/img-clothing-store/img-interactive-section/heels.jpg";
 import imgInteractiveSneakers from "../assets/img-clothing-store/img-interactive-section/sneakers.jpg";
 import imgInteractiveSandals from "../assets/img-clothing-store/img-interactive-section/sandals.jpg";
@@ -55,20 +52,60 @@ const ClothingStore = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
-  const carouselRef = useRef();
-  const intervalRef = useRef();
+
+  const carouselRef = useRef(null);
+  const intervalRef = useRef(null);
+  const interactiveRef = useRef(null);
 
   const totalSlides = 3;
-  const slideDuration = 8000; // 8 secondes
+  const slideDuration = 8000;
 
-  // Bloquer le scroll du body quand le drawer est ouvert
+  const products = [
+    {
+      img: imgInteractiveHeels,
+      title: "Heels",
+      sizes: ["2", "3", "4", "5", "6", "7", "8"],
+    },
+    {
+      img: imgInteractiveSandals,
+      title: "Sandals",
+      sizes: ["2", "3", "4", "5", "6", "7", "8"],
+    },
+    {
+      img: imgInteractiveSneakers,
+      title: "Sneakers",
+      sizes: ["2", "3", "4", "5", "6", "7", "8"],
+    },
+    {
+      img: imgInteractiveJackets,
+      title: "Jackets",
+      sizes: ["XS", "S", "M", "L", "XL"],
+    },
+    {
+      img: imgInteractiveMiniShort,
+      title: "Shorts",
+      sizes: ["XS", "S", "M", "L", "XL"],
+    },
+    {
+      img: imgInteractiveSummerDress,
+      title: "Dress",
+      sizes: ["XS", "S", "M", "L", "XL"],
+    },
+    {
+      img: imgInteractiveTshirt,
+      title: "T-shirt",
+      sizes: ["XS", "S", "M", "L", "XL"],
+    },
+  ];
+
+  // Bloquer scroll body quand drawer ouvert
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
   }, [isOpen]);
 
-  // Fonction pour lancer ou relancer l'intervalle
+  // Carousel interval
   const resetInterval = () => {
-    clearInterval(intervalRef.current);
+    if (intervalRef.current) clearInterval(intervalRef.current);
     if (isPlaying) {
       intervalRef.current = setInterval(() => {
         setCurrentIndex((prev) => prev + 1);
@@ -76,12 +113,7 @@ const ClothingStore = () => {
     }
   };
 
-  useEffect(() => {
-    resetInterval();
-    return () => clearInterval(intervalRef.current);
-  }, [isPlaying]);
-
-  // Boucle infinie propre
+  // Carousel principal infinite loop
   useEffect(() => {
     if (currentIndex === totalSlides) {
       setTimeout(() => {
@@ -93,7 +125,13 @@ const ClothingStore = () => {
     }
   }, [currentIndex]);
 
-  // RIGHT/LEFT PLAYER
+  useEffect(() => {
+    resetInterval();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [isPlaying]);
+
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
     resetInterval();
@@ -103,15 +141,28 @@ const ClothingStore = () => {
     resetInterval();
   };
 
-  // Gestion pause/play
-  const handlePausePlay = () => {
-    setIsPlaying((prev) => !prev);
+  const handlePausePlay = () => setIsPlaying((prev) => !prev);
+
+  const scrollLeftInteractive = () => {
+    if (!interactiveRef.current) return;
+    interactiveRef.current.scrollBy({
+      left: -interactiveRef.current.clientWidth,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollRightInteractive = () => {
+    if (!interactiveRef.current) return;
+    interactiveRef.current.scrollBy({
+      left: interactiveRef.current.clientWidth,
+      behavior: "smooth",
+    });
   };
 
   return (
     <div className="clothing-store">
-      <div class="delivery-banner">
-        <div class="delivery-ticker">
+      <div className="delivery-banner">
+        <div className="delivery-ticker">
           <span>
             · Free delivery to store · Free home delivery on orders over £30
             ·{" "}
@@ -173,7 +224,6 @@ const ClothingStore = () => {
           </div>
         </div>
       </header>
-
       <div className="carousel-section">
         {/* DOTS */}
         <div className="three-dots-carousel">
@@ -183,7 +233,7 @@ const ClothingStore = () => {
               onClick={() => {
                 setCurrentIndex(index);
                 setIsTransitioning(true);
-                resetInterval(); // reset compteur
+                resetInterval();
               }}
               style={{
                 background:
@@ -334,7 +384,6 @@ const ClothingStore = () => {
           <h4>📍LOCAL LSU 3/4 & LSU 12 LEVEL 2 </h4>
         </div>
       </div>
-
       <div className="big-images-section">
         <div className="part part-1">
           <div
@@ -376,7 +425,7 @@ const ClothingStore = () => {
             </div>
           </div>
         </div>
-        <div className="inserted information">
+        <div className="inserted-information">
           <div className="text-left">D80 Barrel</div>
           <div className="text-right">
             <p>2026</p>
@@ -416,7 +465,6 @@ const ClothingStore = () => {
           ></div>
         </div>
       </div>
-
       <div className="collective-section">
         <div className="grid-section">
           <div className="grid">
@@ -443,145 +491,33 @@ const ClothingStore = () => {
 
       <div className="interactive-section">
         <h1>LATEST NEWS FOR YOU</h1>
-        <div className="carousel-interactive-section">
-          <div className="each-column-full">
-            <div className="each-column-interactive">
-              <img src={imgInteractiveHeels} alt="" />
-              <div className="overlay-sizes">
-                <h4>SIZES</h4>
-                <div className="choice-sizes">
-                  <span>2</span>
-                  <span>3</span>
-                  <span>4</span>
-                  <span>5</span>
-                  <span>6</span>
-                  <span>7</span>
-                  <span>8</span>
+        <div className="interactive-wrapper">
+          <button className="buttonLeft" onClick={scrollLeftInteractive}>
+            ❮
+          </button>
+          <button className="buttonRight" onClick={scrollRightInteractive}>
+            ❯
+          </button>
+          <div className="carousel-interactive-section" ref={interactiveRef}>
+            {products.map((product, index) => (
+              <div className="each-column-full" key={index}>
+                <div className="each-column-interactive">
+                  <img src={product.img} alt={product.title} />
+                  <div className="overlay-sizes">
+                    <h4>SIZES</h4>
+                    <div className="choice-sizes">
+                      {product.sizes.map((size, i) => (
+                        <span key={i}>{size}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="title-and-prices">
+                  <h5>{product.title}</h5>
+                  <p className="price">£29.99</p>
                 </div>
               </div>
-            </div>
-            <div className="title-and-prices">
-              <h5>Shoes</h5>
-              <p className="price"></p>
-            </div>
-          </div>
-          <div className="each-column-full">
-            <div className="each-column-interactive">
-              <img src={imgInteractiveSandals} alt="" />
-              <div className="overlay-sizes">
-                <h4>SIZES</h4>
-                <div className="choice-sizes">
-                  <span>2</span>
-                  <span>3</span>
-                  <span>4</span>
-                  <span>5</span>
-                  <span>6</span>
-                  <span>7</span>
-                  <span>8</span>
-                </div>
-              </div>
-            </div>
-            <div className="title-and-prices">
-              <h5>Shoes</h5>
-              <p className="price"></p>
-            </div>
-          </div>
-          <div className="each-column-full">
-            <div className="each-column-interactive">
-              <img src={imgInteractiveSneakers} alt="" />
-              <div className="overlay-sizes">
-                <h4>SIZES</h4>
-                <div className="choice-sizes">
-                  <span>2</span>
-                  <span>3</span>
-                  <span>4</span>
-                  <span>5</span>
-                  <span>6</span>
-                  <span>7</span>
-                  <span>8</span>
-                </div>
-              </div>
-            </div>
-            <div className="title-and-prices">
-              <h5>Shoes</h5>
-              <p className="price"></p>
-            </div>
-          </div>
-          <div className="each-column-full">
-            <div className="each-column-interactive">
-              <img src={imgInteractiveJackets} alt="" />
-              <div className="overlay-sizes">
-                <h4>SIZES</h4>
-                <div className="choice-sizes">
-                  <span>XS</span>
-                  <span>S</span>
-                  <span>M</span>
-                  <span>L</span>
-                  <span>XL</span>
-                </div>
-              </div>
-            </div>
-            <div className="title-and-prices">
-              <h5>Shoes</h5>
-              <p className="price"></p>
-            </div>
-          </div>
-          <div className="each-column-full">
-            <div className="each-column-interactive">
-              <img src={imgInteractiveMiniShort} alt="" />
-              <div className="overlay-sizes">
-                <h4>SIZES</h4>
-                <div className="choice-sizes">
-                  <span>XS</span>
-                  <span>S</span>
-                  <span>M</span>
-                  <span>L</span>
-                  <span>XL</span>
-                </div>
-              </div>
-            </div>
-            <div className="title-and-prices">
-              <h5>Shoes</h5>
-              <p className="price"></p>
-            </div>
-          </div>
-          <div className="each-column-full">
-            <div className="each-column-interactive">
-              <img src={imgInteractiveSummerDress} alt="" />
-              <div className="overlay-sizes">
-                <h4>SIZES</h4>
-                <div className="choice-sizes">
-                  <span>XS</span>
-                  <span>S</span>
-                  <span>M</span>
-                  <span>L</span>
-                  <span>XL</span>
-                </div>
-              </div>
-            </div>
-            <div className="title-and-prices">
-              <h5>Shoes</h5>
-              <p className="price"></p>
-            </div>
-          </div>
-          <div className="each-column-full">
-            <div className="each-column-interactive">
-              <img src={imgInteractiveTshirt} alt="" />
-              <div className="overlay-sizes">
-                <h4>SIZES</h4>
-                <div className="choice-sizes">
-                  <span>XS</span>
-                  <span>S</span>
-                  <span>M</span>
-                  <span>L</span>
-                  <span>XL</span>
-                </div>
-              </div>
-            </div>
-            <div className="title-and-prices">
-              <h5>Shoes</h5>
-              <p className="price"></p>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -596,3 +532,16 @@ const ClothingStore = () => {
 };
 
 export default ClothingStore;
+
+/* 
+
+J'aimerais que lorsque l'on hover le .each-column-full la div
+      .overlay-sizes apparaissent. Mais je si on ne hover pas .each-column-full
+      il faut que cette div .overlay-sizes n'apparaisse pas. et Aussi j'aimerais
+      que l'écran on voit 4 each-column-full, et qu'ensuite le reste des div
+      .each-column-full qui se trouvent dans carousel-interactive-section il
+      faille swiper à droite pour que le reste apparaisse. Swiper sur smartphone
+      ou bien cliquer sur les boutons
+
+
+*/

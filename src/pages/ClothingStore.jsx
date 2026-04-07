@@ -46,6 +46,18 @@ import imgInteractiveJackets from "../assets/img-clothing-store/img-interactive-
 import imgInteractiveMiniShort from "../assets/img-clothing-store/img-interactive-section/mini-short.jpg";
 import imgInteractiveSummerDress from "../assets/img-clothing-store/img-interactive-section/summer-dress.jpg";
 import imgInteractiveTshirt from "../assets/img-clothing-store/img-interactive-section/t-shirt.jpg";
+import chooseYourLook1 from "../assets/img-clothing-store/img-choose-your-look/pexel-1.jpg";
+import chooseYourLook2 from "../assets/img-clothing-store/img-choose-your-look/pexel-2.jpg";
+import chooseYourLook3 from "../assets/img-clothing-store/img-choose-your-look/pexel-3.jpg";
+import chooseYourLook4 from "../assets/img-clothing-store/img-choose-your-look/pexel-4.jpg";
+import chooseYourLook5 from "../assets/img-clothing-store/img-choose-your-look/pexel-5.jpg";
+import chooseYourLook6 from "../assets/img-clothing-store/img-choose-your-look/pexel-6.jpg";
+import chooseYourLook7 from "../assets/img-clothing-store/img-choose-your-look/pexel-7.jpg";
+import chooseYourLook8 from "../assets/img-clothing-store/img-choose-your-look/pexel-8.jpg";
+import chooseYourLook9 from "../assets/img-clothing-store/img-choose-your-look/pexel-9.jpg";
+import chooseYourLook10 from "../assets/img-clothing-store/img-choose-your-look/pexel-10.jpg";
+import chooseYourLook11 from "../assets/img-clothing-store/img-choose-your-look/pexel-11.jpg";
+import chooseYourLook12 from "../assets/img-clothing-store/img-choose-your-look/pexel-12.jpg";
 
 const ClothingStore = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -518,6 +530,50 @@ const ClothingStore = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+      <div className="chooseYourLook">
+        <div id="grid-section">
+          <div id="grid">
+            <img src={chooseYourLook1} alt="" />
+            <img src={chooseYourLook2} alt="" />
+            <img src={chooseYourLook3} alt="" />
+            <img src={chooseYourLook4} alt="" />
+            <img src={chooseYourLook5} alt="" />
+            <img src={chooseYourLook6} alt="" />
+            <img src={chooseYourLook7} alt="" />
+            <img src={chooseYourLook8} alt="" />
+            <img src={chooseYourLook9} alt="" />
+            <img src={chooseYourLook10} alt="" />
+            <img src={chooseYourLook11} alt="" />
+            <img src={chooseYourLook12} alt="" />
+          </div>
+        </div>
+        <div id="right-part">
+          <h1>Choose your look</h1>
+        </div>
+      </div>
+
+      <div className="scrolling-banner-part">
+        <div className="scrolling-banner">
+          <div className="inner-scrolling-banner">
+            <span>
+              WEEKLY NEWS We inspire people to enjoy fashion with passion
+              DISCOVER
+            </span>
+            <span>
+              WEEKLY NEWS We inspire people to enjoy fashion with passion
+              DISCOVER
+            </span>
+            <span>
+              WEEKLY NEWS We inspire people to enjoy fashion with passion
+              DISCOVER
+            </span>
+            <span>
+              WEEKLY NEWS We inspire people to enjoy fashion with passion
+              DISCOVER
+            </span>
           </div>
         </div>
       </div>

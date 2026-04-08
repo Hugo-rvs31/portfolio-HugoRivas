@@ -64,6 +64,10 @@ const ClothingStore = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
+  const bannerText =
+    "WEEKLY NEWS We inspire people to enjoy fashion with passion DISCOVER";
+  const deliveryText =
+    "· Free delivery to store · Free home delivery on orders over £30 ·";
 
   const carouselRef = useRef(null);
   const intervalRef = useRef(null);
@@ -175,38 +179,9 @@ const ClothingStore = () => {
     <div className="clothing-store">
       <div className="delivery-banner">
         <div className="delivery-ticker">
-          <span>
-            · Free delivery to store · Free home delivery on orders over £30
-            ·{" "}
-          </span>
-          <span>
-            · Free delivery to store · Free home delivery on orders over £30
-            ·{" "}
-          </span>
-          <span>
-            · Free delivery to store · Free home delivery on orders over £30
-            ·{" "}
-          </span>
-          <span>
-            · Free delivery to store · Free home delivery on orders over £30
-            ·{" "}
-          </span>
-          <span>
-            · Free delivery to store · Free home delivery on orders over £30
-            ·{" "}
-          </span>
-          <span>
-            · Free delivery to store · Free home delivery on orders over £30
-            ·{" "}
-          </span>
-          <span>
-            · Free delivery to store · Free home delivery on orders over £30
-            ·{" "}
-          </span>
-          <span>
-            · Free delivery to store · Free home delivery on orders over £30
-            ·{" "}
-          </span>
+          {[...Array(8)].map((_, index) => (
+            <span key={index}>{deliveryText}</span>
+          ))}
         </div>
       </div>
       <header>
@@ -558,25 +533,61 @@ const ClothingStore = () => {
       <div className="scrolling-banner-part">
         <div className="scrolling-banner">
           <div className="inner-scrolling-banner">
-            <span>
-              WEEKLY NEWS We inspire people to enjoy fashion with passion
-              DISCOVER
-            </span>
-            <span>
-              WEEKLY NEWS We inspire people to enjoy fashion with passion
-              DISCOVER
-            </span>
-            <span>
-              WEEKLY NEWS We inspire people to enjoy fashion with passion
-              DISCOVER
-            </span>
-            <span>
-              WEEKLY NEWS We inspire people to enjoy fashion with passion
-              DISCOVER
-            </span>
+            {[...Array(4)].map((_, index) => (
+              <React.Fragment key={index}>
+                <span>{bannerText}</span>
+                <span>☺️</span>
+              </React.Fragment>
+            ))}
           </div>
         </div>
       </div>
+
+      <div className="subscription">
+        <div className="left-part">
+          <h1>STAY UP-TO-DATE ON THE LATEST TRENDS AND EXCLUSIVE OFFERS</h1>
+          <p>
+            Subscribe now and receive the latest in fashion and tips straight to
+            your email.
+          </p>
+        </div>
+        <div className="right-part">
+          <input type="text" name="" id="inputMail" placeholder="Email" />
+          <button className="submit">SUBSCRIBE NOW</button>
+          <p className="unsubscribe">I want to unsubscribe</p>
+        </div>
+      </div>
+
+      <div className="little-information">
+        **Free delivery over £30, only for non-discounted products from the new
+        collection.
+      </div>
+
+      <footer>
+        <div className="information-footer">
+          <h3>Online women's and Men's clothing store</h3>
+          <p>
+            Discover the latest fashion on <span>ClothingStore</span>. Find your
+            favorite, elegant <span>dresses</span> <span>pants</span>,
+            comfortable <span>jeans</span> and modern <span>shoes</span>. Renew
+            your wardrobe with our fashion collections that combine style and
+            comfort.
+          </p>
+        </div>
+        <ul className="nav-footer">
+          <li>HELP</li>
+          <li>US</li>
+          <li>GIFT CARD</li>
+          <li>FOLLOW US</li>
+          <li>OUR APP</li>
+          <li>LEGAL</li>
+          <li>SITEMAP</li>
+          <li>
+            <div className="country">UNITED KINGDOM</div> <span> |</span>{" "}
+            <div className="country">ENGLISH</div>
+          </li>
+        </ul>
+      </footer>
 
       {/* OVERLAY */}
       <div
@@ -591,13 +602,7 @@ export default ClothingStore;
 
 /* 
 
-J'aimerais que lorsque l'on hover le .each-column-full la div
-      .overlay-sizes apparaissent. Mais je si on ne hover pas .each-column-full
-      il faut que cette div .overlay-sizes n'apparaisse pas. et Aussi j'aimerais
-      que l'écran on voit 4 each-column-full, et qu'ensuite le reste des div
-      .each-column-full qui se trouvent dans carousel-interactive-section il
-      faille swiper à droite pour que le reste apparaisse. Swiper sur smartphone
-      ou bien cliquer sur les boutons
+
 
 
 */

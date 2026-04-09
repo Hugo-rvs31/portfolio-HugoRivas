@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import img1Drawer1 from "../assets/img-clothing-store/img1-drawer.jpg";
 import img1Drawer2 from "../assets/img-clothing-store/img2-drawer.jpg";
 import img1Drawer3 from "../assets/img-clothing-store/img3-drawer.jpg";
+import { HiOutlineChatBubbleLeft } from "react-icons/hi2";
 import {
   Menu,
   Search,
@@ -177,6 +178,12 @@ const ClothingStore = () => {
 
   return (
     <div className="clothing-store">
+      <div className="chat">
+        <div className="inner-chat">
+          <HiOutlineChatBubbleLeft id="chat-icon" />
+          <p>Chat</p>
+        </div>
+      </div>
       <div className="delivery-banner">
         <div className="delivery-ticker">
           {[...Array(8)].map((_, index) => (
@@ -254,7 +261,10 @@ const ClothingStore = () => {
           <div className="each-part-carousel">
             <div
               className="big-image carousel-image1"
-              style={{ backgroundImage: `url(${img1})` }}
+              style={{
+                backgroundImage: `url(${img1})`,
+                backgroundPosition: "center top",
+              }}
             >
               <div className="little-text-left">
                 <h3>NEW IN</h3>
@@ -263,7 +273,10 @@ const ClothingStore = () => {
             </div>
             <div
               className="big-image carousel-image2"
-              style={{ backgroundImage: `url(${img2})` }}
+              style={{
+                backgroundImage: `url(${img2})`,
+                backgroundPosition: "center top",
+              }}
             ></div>
           </div>
 
@@ -271,7 +284,10 @@ const ClothingStore = () => {
           <div className="each-part-carousel">
             <div
               className="big-image carousel-image3"
-              style={{ backgroundImage: `url(${img3})` }}
+              style={{
+                backgroundImage: `url(${img3})`,
+                backgroundPosition: "center top",
+              }}
             >
               <div className="little-text-left">
                 <h3> STR TEEN</h3>
@@ -280,7 +296,10 @@ const ClothingStore = () => {
             </div>
             <div
               className="big-image carousel-image4"
-              style={{ backgroundImage: `url(${img4})` }}
+              style={{
+                backgroundImage: `url(${img4})`,
+                backgroundPosition: "center top",
+              }}
             ></div>
           </div>
 
@@ -288,7 +307,10 @@ const ClothingStore = () => {
           <div className="each-part-carousel">
             <div
               className="big-image carousel-image5"
-              style={{ backgroundImage: `url(${img5})` }}
+              style={{
+                backgroundImage: `url(${img5})`,
+                backgroundPosition: "center top",
+              }}
             >
               <div className="little-text-left">
                 <h3>CASUAL SPORT</h3>
@@ -297,7 +319,10 @@ const ClothingStore = () => {
             </div>
             <div
               className="big-image carousel-image6"
-              style={{ backgroundImage: `url(${img6})` }}
+              style={{
+                backgroundImage: `url(${img6})`,
+                backgroundPosition: "center top",
+              }}
             ></div>
           </div>
 
@@ -305,7 +330,10 @@ const ClothingStore = () => {
           <div className="each-part-carousel">
             <div
               className="big-image carousel-image1"
-              style={{ backgroundImage: `url(${img1})` }}
+              style={{
+                backgroundImage: `url(${img1})`,
+                backgroundPosition: "center top",
+              }}
             >
               <div className="little-text-left">
                 <h3>NEW IN</h3>
@@ -314,7 +342,10 @@ const ClothingStore = () => {
             </div>
             <div
               className="big-image carousel-image2"
-              style={{ backgroundImage: `url(${img2})` }}
+              style={{
+                backgroundImage: `url(${img2})`,
+                backgroundPosition: "center top",
+              }}
             ></div>
           </div>
         </div>
@@ -583,10 +614,15 @@ const ClothingStore = () => {
           <li>LEGAL</li>
           <li>SITEMAP</li>
           <li>
-            <div className="country">UNITED KINGDOM</div> <span> |</span>{" "}
-            <div className="country">ENGLISH</div>
+            <span className="country1">UNITED KINGDOM</span>{" "}
+            <span className="barre"></span>{" "}
+            <span className="country2">ENGLISH</span>
           </li>
         </ul>
+        <div className="logo-brand">
+          <div className="logo">ClothingStore</div>
+          <p className="copyright">© 2026 Stradivarius</p>
+        </div>
       </footer>
 
       {/* OVERLAY */}

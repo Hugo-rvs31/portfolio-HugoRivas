@@ -65,6 +65,7 @@ const ClothingStore = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const bannerText =
     "WEEKLY NEWS We inspire people to enjoy fashion with passion DISCOVER";
   const deliveryText =
@@ -178,12 +179,36 @@ const ClothingStore = () => {
 
   return (
     <div className="clothing-store">
-      <div className="chat">
-        <div className="inner-chat">
-          <HiOutlineChatBubbleLeft id="chat-icon" />
-          <p>Chat</p>
+      {!isChatOpen && (
+        <div className="chat" onClick={() => setIsChatOpen(true)}>
+          <div className="inner-chat">
+            <HiOutlineChatBubbleLeft id="chat-icon" />
+            <p>Chat</p>
+          </div>
         </div>
-      </div>
+      )}
+      {isChatOpen && (
+        <div className="chat-open">
+          <div className="chat-up">
+            <button onClick={() => setIsChatOpen(false)}>✕</button>
+            <button>⌵</button>
+          </div>
+          <div className="discussion-area">
+            <p className="text-discussion-area">
+              By joining the ClothingStore chat, you confirm that you have read
+              and understand our <span>Privacy and Cookies Policy</span>
+            </p>
+          </div>
+          <div className="message">
+            <input
+              type="text"
+              name=""
+              id="message-chat"
+              placeholder="MESSAGE"
+            />
+          </div>
+        </div>
+      )}
       <div className="delivery-banner">
         <div className="delivery-ticker">
           {[...Array(8)].map((_, index) => (

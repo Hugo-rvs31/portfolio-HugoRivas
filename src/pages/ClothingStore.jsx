@@ -183,7 +183,7 @@ const ClothingStore = () => {
         <div className="chat" onClick={() => setIsChatOpen(true)}>
           <div className="inner-chat">
             <HiOutlineChatBubbleLeft id="chat-icon" />
-            <p>Cha</p>
+            <p>Chat</p>
           </div>
         </div>
       )}

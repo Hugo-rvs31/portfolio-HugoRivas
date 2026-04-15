@@ -351,7 +351,7 @@ const ClothingStore = () => {
             ></div>
           </div>
 
-          {/* DUPLICATION DU PREMIER SLIDE (clé loop) */}
+          {/* DUPLICATION DU PREMIER SLIDE */}
           <div className="each-part-carousel">
             <div
               className="big-image carousel-image1"
@@ -660,10 +660,3 @@ const ClothingStore = () => {
 };
 
 export default ClothingStore;
-
-/* 
-
-
-
-
-*/

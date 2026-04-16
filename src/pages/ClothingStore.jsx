@@ -66,6 +66,7 @@ const ClothingStore = () => {
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const bannerText =
     "WEEKLY NEWS We inspire people to enjoy fashion with passion DISCOVER";
   const deliveryText =
@@ -233,7 +234,30 @@ const ClothingStore = () => {
                 type="search"
                 placeholder="Search by product, collection..."
               />
-              <Search id="iconSearch1" />
+              <Search
+                id="iconSearch1"
+                onClick={() => {
+                  if (window.innerWidth <= 645) {
+                    setIsSearchOpen(true);
+                  }
+                }}
+              />
+              <div className={`search-overlay ${isSearchOpen ? "active" : ""}`}>
+                <div className="search-box">
+                  <input
+                    type="search"
+                    placeholder="Search..."
+                    id="inputSearchOverlay"
+                  />
+
+                  <span
+                    className="close-search"
+                    onClick={() => setIsSearchOpen(false)}
+                  >
+                    ✕
+                  </span>
+                </div>
+              </div>
             </div>
             <div className="three-icons">
               <User />

@@ -138,6 +138,18 @@
       align-items: center;
       justify-content: space-between;
 
+      @media (max-width: 1050px) {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        gap: 200px;
+      }
+      @media (max-width: 950px) {
+        gap: 140px;
+      }
+      @media (max-width: 860px) {
+        gap: 100px;
+      }
+
       .menu-left {
         display: flex;
         align-items: center;
@@ -160,11 +172,19 @@
         display: flex;
         align-items: center;
         gap: 30px;
+        @media (max-width: 790px) {
+          width: 60%;
+          padding-left: 80px;
+        }
+        @media (max-width: 700px) {
+          padding-left: 40px;
+        }
 
         .divInputSearch1 {
           position: relative;
           width: 100%;
           max-width: 350px;
+          min-width: 270px;
 
           input {
             width: 100%;
@@ -181,6 +201,9 @@
             &::-webkit-search-results-decoration {
               display: none;
             }
+            @media (max-width: 645px) {
+              display: none;
+            }
           }
 
           #iconSearch1 {
@@ -191,12 +214,66 @@
             transform: translateY(-50%);
             position: absolute;
             right: 10px;
+            @media (max-width: 645px) {
+              width: 35px;
+              height: 35px;
+              right: 50px;
+            }
+            @media (max-width: 581px) {
+              width: 30px;
+              height: 30px;
+              right: 100px;
+            }
+          }
+          .search-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20%;
+            background: white;
+            z-index: 9999;
+
+            display: none;
+          }
+
+          .search-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .search-box {
+            position: relative;
+            width: 80%;
+            height: 100%;
+
+            #inputSearchOverlay {
+              display: flex !important;
+              width: 100%;
+              height: 100px;
+              outline: none;
+              border: none;
+              background: pink;
+            }
+          }
+
+          .close-search {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
           }
         }
         .three-icons {
           display: flex;
           gap: 20px;
           color: rgb(73, 73, 73);
+
+          @media (max-width: 790px) {
+            display: none;
+          }
         }
       }
     }

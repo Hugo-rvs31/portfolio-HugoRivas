@@ -493,6 +493,10 @@
         height: 2px;
         background: white;
       }
+      @media (max-width: 550px) {
+        top: -70%;
+        width: 80%;
+      }
     }
     .carousel-player {
       padding: 8px 12px;
@@ -871,6 +875,10 @@
     h1 {
       font-size: 2.1rem;
       padding: 70px 30px 30px;
+      @media (max-width: 450px) {
+        text-align: center;
+        font-size: 1.8rem;
+      }
     }
     .interactive-wrapper {
       position: relative;
@@ -881,13 +889,21 @@
         top: 50%;
         transform: translateY(-50%);
         z-index: 10;
-        background: rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.082);
         color: white;
         border: none;
         border-radius: 50%;
         padding: 15px;
         cursor: pointer;
         font-size: 1.5rem;
+        transition: 0.3s ease-in;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.219);
+        }
+        @media (max-width: 450px) {
+          top: 40%;
+        }
       }
 
       .buttonLeft {
@@ -910,38 +926,11 @@
       @media (max-width: 450px) {
         padding: 0;
         gap: 0;
+        width: 100%;
+        scroll-snap-type: x mandatory;
       }
       &::-webkit-scrollbar {
         display: none;
-      }
-
-      .buttonLeft,
-      .buttonRight {
-        z-index: 10;
-        opacity: 1;
-        transition: 0.3s;
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-
-        border: none;
-        padding: 15px;
-        border-radius: 50%;
-        background: rgba(0, 0, 0, 0.2);
-        color: white;
-        font-size: 1.5rem;
-      }
-      .buttonLeft {
-        left: 10px;
-      }
-      .buttonRight {
-        right: 10px;
-      }
-
-      &:hover .buttonLeft,
-      &:hover .buttonRight {
-        opacity: 1;
       }
 
       .each-column-full {
@@ -959,7 +948,8 @@
           flex: 0 0 calc(80% - 15px);
         }
         @media (max-width: 450px) {
-          flex: 0 0 100vw;
+          flex: 0 0 100%;
+          scroll-snap-align: start;
         }
 
         .each-column-interactive {
@@ -968,6 +958,9 @@
           aspect-ratio: 4/5;
           border-radius: 10px;
           overflow: hidden;
+          @media (max-width: 450px) {
+            width: 100%;
+          }
 
           img {
             width: 100%;
@@ -990,16 +983,27 @@
             flex-direction: column;
             justify-content: flex-end;
             padding: 15px;
+            @media (max-width: 450px) {
+              height: 25%;
+            }
 
             .choice-sizes {
               display: flex;
               flex-wrap: wrap;
-              gap: 5px;
+              gap: 7px;
+              margin-top: 15px;
               span {
                 background: white;
-                padding: 3px 6px;
+                padding: 8px 11px;
                 border-radius: 4px;
                 font-size: 0.8rem;
+                cursor: pointer;
+                transition: 0.3s ease-in-out;
+
+                &:hover {
+                  background: rgba(165, 165, 165, 0.637);
+                  color: white;
+                }
               }
             }
           }
@@ -1021,6 +1025,9 @@
             font-size: 0.9rem;
             color: #333;
             margin: 0;
+          }
+          @media (max-width: 450px) {
+            padding-left: 15px;
           }
         }
       }

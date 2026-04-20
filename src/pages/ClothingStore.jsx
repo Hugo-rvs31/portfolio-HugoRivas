@@ -234,14 +234,17 @@ const ClothingStore = () => {
                 type="search"
                 placeholder="Search by product, collection..."
               />
-              <Search
-                id="iconSearch1"
-                onClick={() => {
-                  if (window.innerWidth <= 645) {
-                    setIsSearchOpen(true);
-                  }
-                }}
-              />
+              <div title="search">
+                <Search
+                  id="iconSearch1"
+                  onClick={() => {
+                    if (window.innerWidth <= 645) {
+                      setIsSearchOpen(true);
+                    }
+                  }}
+                />
+              </div>
+
               <div className={`search-overlay ${isSearchOpen ? "active" : ""}`}>
                 <div className="search-box">
                   <input
@@ -260,9 +263,15 @@ const ClothingStore = () => {
               </div>
             </div>
             <div className="three-icons">
-              <User />
-              <Heart />
-              <ShoppingBag />
+              <div title="user">
+                <User />
+              </div>
+              <div title="your favorites">
+                <Heart />
+              </div>
+              <div title="cart">
+                <ShoppingBag />
+              </div>
             </div>
           </div>
         </div>

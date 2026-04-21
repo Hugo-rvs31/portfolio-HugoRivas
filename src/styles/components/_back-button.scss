@@ -1,4 +1,4 @@
-#back-button {
+.back-button-wrapper {
   position: absolute;
   top: 1rem;
   left: 50%;
@@ -42,5 +42,16 @@
   }
   @media (max-width: 400px) {
     max-width: 260px;
+  }
+}
+
+.back-button-wrapper.clothing-store-back-button {
+  position: static;
+  transform: none;
+  border: 1px solid pink;
+  width: 50%;
+  background: red;
+  .back-button-wrapper.clothing-store-back-button .back-button {
+    background: blue;
   }
 }

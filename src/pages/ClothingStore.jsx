@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import BackButton from "../components/BackButton";
 import img1Drawer1 from "../assets/img-clothing-store/img1-drawer.jpg";
 import img1Drawer2 from "../assets/img-clothing-store/img2-drawer.jpg";
 import img1Drawer3 from "../assets/img-clothing-store/img3-drawer.jpg";
@@ -414,7 +415,10 @@ const ClothingStore = () => {
         <div className="inner-drawer">
           <div className="up">
             <button onClick={() => setIsOpen(false)}>✕</button>
-            <h2>Menu</h2>
+            <div className="up-menu-and-back-button">
+              <h2>Menu</h2>
+              <BackButton className="clothing-store-back-button" />
+            </div>
             <div className="divInputSearch2">
               <input
                 type="search"

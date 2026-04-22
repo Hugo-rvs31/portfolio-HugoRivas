@@ -348,6 +348,7 @@
         background: white;
         z-index: 10;
         padding-bottom: 10px;
+        padding-top: 20px;
         gap: 10px;
 
         button {
@@ -362,10 +363,11 @@
           align-items: center;
           justify-content: space-between;
           width: 100%;
-        }
-        h2 {
-          text-align: center;
-          border-bottom: 2px solid black;
+
+          h2 {
+            text-align: center;
+            border-bottom: 2px solid black;
+          }
         }
 
         .divInputSearch2 {
@@ -398,7 +400,7 @@
       }
 
       .images-part {
-        margin-top: 20px;
+        margin-top: 40px;
         display: flex;
 
         img {

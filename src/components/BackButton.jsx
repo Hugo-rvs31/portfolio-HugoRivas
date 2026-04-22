@@ -1,8 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
-const BackButton = ({ label = "Back", fallback = "/", className = "" }) => {
+const BackButton = ({ label = "Back", fallback = "/" }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleClick = () => {
     if (window.history.length > 1) {
@@ -12,8 +13,11 @@ const BackButton = ({ label = "Back", fallback = "/", className = "" }) => {
     }
   };
 
+  // ✅ condition simple
+  const isClothingStore = location.pathname === "/clothing-store";
+
   return (
-    <div className={`back-button-wrapper ${className}`}>
+    <div className={`back-button-wrapper ${isClothingStore ? "clothing" : ""}`}>
       <button className="back-button" type="button" onClick={handleClick}>
         <span className="arrow">←</span>
         <span className="label">{label}</span>

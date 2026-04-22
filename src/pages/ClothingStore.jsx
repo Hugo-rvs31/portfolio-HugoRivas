@@ -417,7 +417,7 @@ const ClothingStore = () => {
             <button onClick={() => setIsOpen(false)}>✕</button>
             <div className="up-menu-and-back-button">
               <h2>Menu</h2>
-              <BackButton className="clothing-store-back-button" />
+              <BackButton variant="clothing-store-back-button" />
             </div>
             <div className="divInputSearch2">
               <input

@@ -45,7 +45,7 @@
   }
 }
 
-.back-button-wrapper.clothing-store-back-button {
+.back-button-wrapper.clothing {
   position: static;
   transform: none;
   border: 1px solid pink;
@@ -53,4 +53,8 @@
   background: rgb(233, 202, 202);
   padding: 7px;
   border-radius: 10px;
+
+  .back-button {
+    background: red;
+  }
 }

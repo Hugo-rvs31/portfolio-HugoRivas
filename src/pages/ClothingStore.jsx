@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import BackButton from "../components/BackButton";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import img1Drawer1 from "../assets/img-clothing-store/img1-drawer.jpg";
 import img1Drawer2 from "../assets/img-clothing-store/img2-drawer.jpg";
 import img1Drawer3 from "../assets/img-clothing-store/img3-drawer.jpg";
@@ -181,6 +182,7 @@ const ClothingStore = () => {
 
   return (
     <div className="clothing-store">
+      <ScrollToTopButton />
       {!isChatOpen && (
         <div className="chat" onClick={() => setIsChatOpen(true)}>
           <div className="inner-chat">
@@ -417,7 +419,7 @@ const ClothingStore = () => {
             <button onClick={() => setIsOpen(false)}>✕</button>
             <div className="up-menu-and-back-button">
               <h2>Menu</h2>
-              <BackButton variant="clothing-store-back-button" />
+              <BackButton />
             </div>
             <div className="divInputSearch2">
               <input

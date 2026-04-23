@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import BackButton from "../components/BackButton";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 
 const MoviesLibrary = () => {
   const [films, setFilms] = useState([]);
@@ -40,6 +41,7 @@ const MoviesLibrary = () => {
 
   return (
     <div className="movies-library">
+      <ScrollToTopButton />
       <div className="back-container">
         <BackButton
           label="Back to Movies Section"

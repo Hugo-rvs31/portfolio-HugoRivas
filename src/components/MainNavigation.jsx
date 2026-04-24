@@ -36,7 +36,7 @@ const MainNavigation = () => {
   return (
     <div className="main-navigation">
       <div className="menu-button" onClick={toggleMenu}>
-        {isOpen ? "Fermer" : "Menu"}
+        {isOpen ? "Close" : "Menu"}
       </div>
 
       {isOpen && (

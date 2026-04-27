@@ -13,7 +13,6 @@ const BackButton = ({ label = "Back", fallback = "/" }) => {
     }
   };
 
-  // ✅ condition simple
   const isClothingStore = location.pathname === "/clothing-store";
 
   return (

@@ -40,7 +40,7 @@ const Home = () => {
         transition: "background-image 1s ease-in-out",
       }}
     >
-      <h1>Welcomeddddd</h1>
+      <h1>Welcome</h1>
       <Navigation />
     </div>
   );

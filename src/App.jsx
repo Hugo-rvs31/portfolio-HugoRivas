@@ -6,6 +6,7 @@ import HomeMovieSection from "./pages/HomeMovieSection";
 import GuessTheMovie from "./pages/GuessTheMovie";
 import MoviesLibrary from "./pages/MoviesLibrary";
 import ClothingStore from "./pages/ClothingStore";
+import NewPage from "./pages/NewPage";
 import "./styles/index.scss";
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/guess-the-movie" element={<GuessTheMovie />} />
         <Route path="/movies-library" element={<MoviesLibrary />} />
         <Route path="/clothing-store" element={<ClothingStore />} />
+        <Route path="/new-page" element={<NewPage />} />
 
         {/* Route path avec l'étoile, toujours en dernier */}
         <Route path="*" element={<Home />} />

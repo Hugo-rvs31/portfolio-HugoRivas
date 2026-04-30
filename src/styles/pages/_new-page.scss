@@ -1,2 +1,10 @@
 .new-page {
+  background: pink;
+  height: 100vh;
+  margin-bottom: 100px;
+  overflow: hidden;
+
+  .newpageinner {
+    background-color: yellow;
+  }
 }

@@ -5,6 +5,7 @@ const NewPage = () => {
   return (
     <div className="new-page">
       <ScrollToTopButton />
+      <div className="newpageinner">frfrf</div>
     </div>
   );
 };

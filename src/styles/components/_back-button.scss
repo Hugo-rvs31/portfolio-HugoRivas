@@ -54,3 +54,19 @@
   padding: 7px;
   border-radius: 11px;
 }
+.back-button-wrapper.drawing-canvas {
+  height: 10px;
+  top: 26px;
+  left: 50px;
+  transform: translateY(-50%);
+  transform: none;
+  margin-bottom: 10px;
+
+  .back-button {
+    background: #aaaaaa;
+    color: white;
+    border-radius: 50px;
+    width: auto;
+    padding: 0 20px;
+  }
+}

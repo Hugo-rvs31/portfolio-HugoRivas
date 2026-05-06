@@ -10,6 +10,7 @@ const MainNavigation = () => {
   const isHome = currentPath === "/";
   const isShop = currentPath === "/shop";
   const isCarouselFilm = currentPath === "/carousel-film";
+  const isDrawingCanvas = currentPath === "/drawing-canvas";
 
   const toggleMenu = (e) => {
     e.stopPropagation();
@@ -24,6 +25,7 @@ const MainNavigation = () => {
         className={`navigation navigation-simple 
         ${isShop ? "navigation-shopp" : ""} 
         ${isCarouselFilm ? "navigation-carousel-film" : ""}
+        ${isDrawingCanvas ? "drawing-canvas" : ""}
       `}
       >
         <button className="menu-button" onClick={() => navigate("/")}>
@@ -47,6 +49,9 @@ const MainNavigation = () => {
             </NavLink>
             <NavLink to="/clothing-store" onClick={closeMenu}>
               Clothing Store
+            </NavLink>
+            <NavLink to="/drawing-canvas" onClick={closeMenu}>
+              Draw
             </NavLink>
           </ul>
         </nav>

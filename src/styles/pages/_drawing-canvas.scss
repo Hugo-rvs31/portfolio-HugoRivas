@@ -187,6 +187,9 @@
         @media (max-width: 615px) {
           font-size: 1.6rem;
         }
+        @media (max-width: 430px) {
+          font-size: 1.4rem;
+        }
       }
     }
 
@@ -205,27 +208,27 @@
         height: 75vh;
       }
       @media (max-width: 1000px) {
-        height: 70vh;
+        height: 75vh;
       }
       @media (max-width: 650px) {
-        height: 65vh;
+        height: 80vh;
         width: 85vw;
       }
       @media (max-width: 590px) {
-        height: 60vh;
+        height: 80vh;
       }
       @media (max-width: 500px) {
-        height: 55vh;
+        height: 75vh;
       }
       @media (max-width: 430px) {
         width: 80vw;
-        height: 53vh;
+        height: 75vh;
       }
       @media (max-width: 380px) {
-        height: 50vh;
+        height: 70vh;
       }
       @media (max-width: 360px) {
-        height: 45vh;
+        height: 70vh;
       }
 
       canvas {

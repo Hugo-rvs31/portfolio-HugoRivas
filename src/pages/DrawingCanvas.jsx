@@ -11,7 +11,7 @@ const DrawingCanvas = () => {
   const [selectedSticker, setSelectedSticker] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [lastPos, setLastPos] = useState({ x: 0, y: 0 });
+  const lastPosRef = useRef({ x: 0, y: 0 });
   const [isEraser, setIsEraser] = useState(false);
   const [stickerDrawerOpen, setStickerDrawerOpen] = useState(false);
 
@@ -24,25 +24,30 @@ const DrawingCanvas = () => {
     const ctx = canvas.getContext("2d");
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
+    ctx.imageSmoothingEnabled = true;
     ctxRef.current = ctx;
 
     const resize = () => {
       const wrapper = canvas.parentElement;
       if (!wrapper) return;
+
       const dpr = window.devicePixelRatio || 1;
 
       const cssWidth = wrapper.clientWidth;
       const cssHeight = wrapper.clientHeight;
 
-      canvas.width = Math.floor(cssWidth * dpr);
-      canvas.height = Math.floor(cssHeight * dpr);
+      canvas.width = cssWidth * dpr;
+      canvas.height = cssHeight * dpr;
+
       canvas.style.width = `${cssWidth}px`;
       canvas.style.height = `${cssHeight}px`;
 
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
 
-      ctx.lineWidth = brushSize;
-      ctx.strokeStyle = brushColor;
+      ctx.imageSmoothingEnabled = true;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
     };
 
     resize();
@@ -60,7 +65,9 @@ const DrawingCanvas = () => {
   const getEventPos = (e) => {
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
+
     let clientX, clientY;
+
     if (e.touches && e.touches[0]) {
       clientX = e.touches[0].clientX;
       clientY = e.touches[0].clientY;
@@ -69,11 +76,9 @@ const DrawingCanvas = () => {
       clientY = e.clientY;
     }
 
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
     return {
-      x: (clientX - rect.left) * scaleX,
-      y: (clientY - rect.top) * scaleY,
+      x: clientX - rect.left,
+      y: clientY - rect.top,
     };
   };
 
@@ -87,7 +92,7 @@ const DrawingCanvas = () => {
     }
 
     setIsDrawing(true);
-    setLastPos(pos);
+    lastPosRef.current = pos;
   };
 
   const handleMouseMove = (e) => {
@@ -102,18 +107,18 @@ const DrawingCanvas = () => {
     } else {
       ctx.globalCompositeOperation = "source-over";
       ctx.strokeStyle = brushColor;
-      ctx.shadowBlur = Number(brushSize) / 2;
+      ctx.shadowBlur = 1; //izdhelzidhilddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
       ctx.shadowColor = brushColor;
     }
 
     ctx.lineWidth = Number(brushSize);
 
     ctx.beginPath();
-    ctx.moveTo(lastPos.x, lastPos.y);
+    ctx.moveTo(lastPosRef.current.x, lastPosRef.current.y);
     ctx.lineTo(pos.x, pos.y);
     ctx.stroke();
 
-    setLastPos(pos);
+    lastPosRef.current = pos;
   };
 
   const handleMouseUp = (e) => {
@@ -149,7 +154,12 @@ const DrawingCanvas = () => {
     ctx.shadowBlur = 0;
 
     const size = Number(brushSize) * 2;
+
     ctx.font = `${size}px serif`;
+
+    // IMPORTANT
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
 
     ctx.fillText(selectedSticker, pos.x, pos.y);
   };

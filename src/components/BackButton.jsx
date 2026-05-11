@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 const BackButton = ({
   label = "Back",
@@ -17,7 +18,6 @@ const BackButton = ({
     }
   };
 
-  // ancien comportement conservé
   const isClothingStore = location.pathname === "/clothing-store";
 
   const finalVariant = variant || (isClothingStore ? "clothing" : "");
@@ -25,7 +25,7 @@ const BackButton = ({
   return (
     <div className={`back-button-wrapper ${finalVariant}`}>
       <button className="back-button" type="button" onClick={handleClick}>
-        <span className="arrow">←</span>
+        <ArrowLeft className="arrow" size={18} />
         <span className="label">{label}</span>
       </button>
     </div>

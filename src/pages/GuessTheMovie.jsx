@@ -23,7 +23,7 @@ const GuessTheMovie = () => {
   // -----------------------
   useEffect(() => {
     axios
-      .get("/src/data/movies.json")
+      .get("./data/movies.json")
       .then((response) => setFilms(response.data.movies.slice(0, 30)))
       .catch((error) => console.error(error));
   }, []);
@@ -130,7 +130,7 @@ const GuessTheMovie = () => {
   // Back button handler
   // -----------------------
   const handleBack = () => {
-    console.log("Back button clicked"); // ✅ test du clic
+    console.log("Back button clicked");
     navigate("/home-movie-section");
   };
 

@@ -11,7 +11,7 @@ const MoviesLibrary = () => {
 
   useEffect(() => {
     axios
-      .get("/src/data/movies.json")
+      .get("./data/movies.json")
       .then((response) => {
         setFilms(response.data.movies.slice(0, 30));
       })

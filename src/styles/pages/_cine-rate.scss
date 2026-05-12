@@ -1,0 +1,32 @@
+.cinerate {
+  .user-setup {
+    background: red;
+    margin-top: 100px;
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    h1 {
+    }
+    input {
+      border: none;
+      outline: none;
+      height: 30px;
+    }
+    .avatars {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      padding: 20px;
+    }
+  }
+  .cinerate-inner {
+    margin-top: 200px;
+    .top-bar {
+      background: blue;
+    }
+  }
+}

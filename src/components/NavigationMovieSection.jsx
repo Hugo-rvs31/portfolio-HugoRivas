@@ -34,6 +34,10 @@ const NavigationMovieSection = () => {
             <NavLink to="/#" onClick={closeMenu}>
               Home
             </NavLink>
+
+            <NavLink to="/cine-rate" onClick={closeMenu}>
+              Cine Rate
+            </NavLink>
           </ul>
         </nav>
       )}

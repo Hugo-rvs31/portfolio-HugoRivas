@@ -18,6 +18,14 @@ const MoviesLibrary = () => {
       .catch((error) => console.error(error));
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflowY = "auto";
+
+    return () => {
+      document.body.style.overflowY = "auto";
+    };
+  }, []);
+
   const filteredFilms = films.filter((film) => {
     const searchLower = search.toLowerCase();
 

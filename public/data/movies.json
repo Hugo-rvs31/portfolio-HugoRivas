@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Amélie",
-      "picture": "/img/17-le-fabuleux-destin-damelie-poulain.jpg",
+      "picture": "img/17-le-fabuleux-destin-damelie-poulain.jpg",
       "year": "2001",
       "director": "Jean-Pierre Jeunet",
       "mainActors": ["Audrey Tautou", "Mathieu Kassovitz", "Isabelle Nanty"],
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "title": "28 days later",
-      "picture": "/img/2-28-jours-plus-tard.png",
+      "picture": "img/2-28-jours-plus-tard.png",
       "year": "2002",
       "director": "Danny Boyle",
       "mainActors": ["Cillian Murphy", "Naomie Harris", "Brendan Gleeson"],
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "title": "Babel",
-      "picture": "/img/3-babel.webp",
+      "picture": "img/3-babel.webp",
       "year": "2006",
       "director": "Alejandro Gonzalez Inarritu",
       "mainActors": [
@@ -35,7 +35,7 @@
     {
       "id": 4,
       "title": "Barry Lyndon",
-      "picture": "/img/66-barry-lyndon.webp",
+      "picture": "img/66-barry-lyndon.webp",
       "year": "1975",
       "director": "Stanley Kubrick",
       "mainActors": ["Ryan O'Neal", "Marisa Berenson"],
@@ -44,7 +44,7 @@
     {
       "id": 5,
       "title": "2001: A space Odyssey",
-      "picture": "/img/104-2001-lodyssee-de-lespace.jpg",
+      "picture": "img/104-2001-lodyssee-de-lespace.jpg",
       "year": "1968",
       "director": "Stanley Kubrick",
       "mainActors": ["Keir Dullea", "Gary Lockwood"],
@@ -53,7 +53,7 @@
     {
       "id": 6,
       "title": "Dark City",
-      "picture": "/img/6-dark-city.jpg",
+      "picture": "img/6-dark-city.jpg",
       "year": "1998",
       "director": "Alex Proyas",
       "mainActors": ["Rufus Sewell", "Jennifer Connelly", "Kiefer Sutherland"],
@@ -62,7 +62,7 @@
     {
       "id": 7,
       "title": "Christine",
-      "picture": "/img/111-christine.jpeg",
+      "picture": "img/111-christine.jpeg",
       "year": "1983",
       "director": "John Carpenter",
       "mainActors": ["Keith Gordon", "John Stockwell", "Alexandra Paul"],
@@ -71,7 +71,7 @@
     {
       "id": 8,
       "title": "The Fifth Element",
-      "picture": "/img/114-le-cinquieme-element.webp",
+      "picture": "img/114-le-cinquieme-element.webp",
       "year": "1997",
       "director": "Luc Besson",
       "mainActors": ["Bruce Willis", "Milla Jovovich", "Gary Oldman"],
@@ -80,7 +80,7 @@
     {
       "id": 9,
       "title": "Get out",
-      "picture": "/img/9-get-out.webp",
+      "picture": "img/9-get-out.webp",
       "year": "2017",
       "director": "Jordan Peele",
       "mainActors": ["Daniel Kaluuya", "Allison Williams", "Catherine Keener"],
@@ -89,7 +89,7 @@
     {
       "id": 10,
       "title": "Mars attacks!",
-      "picture": "/img/126-mars-attacks.jpg",
+      "picture": "img/126-mars-attacks.jpg",
       "year": "1996",
       "director": "Tim Burton",
       "mainActors": ["Jack Nicholson", "Glenn Close", "Pierce Brosnan"],
@@ -98,7 +98,7 @@
     {
       "id": 11,
       "title": "It follows",
-      "picture": "/img/11-it-follows.avif",
+      "picture": "img/11-it-follows.avif",
       "year": "2014",
       "director": "David Robert Mitchell",
       "mainActors": ["Maika Monroe", "Keir Gilchrist"],
@@ -107,7 +107,7 @@
     {
       "id": 12,
       "title": "M",
-      "picture": "/img/117-m-le-maudit.jpg",
+      "picture": "img/117-m-le-maudit.jpg",
       "year": "1931",
       "director": "Fritz Lang",
       "mainActors": ["Peter Lorre"],
@@ -116,7 +116,7 @@
     {
       "id": 13,
       "title": "The fly",
-      "picture": "/img/13-la-mouche.webp",
+      "picture": "img/13-la-mouche.webp",
       "year": "1986",
       "director": "David Cronenberg",
       "mainActors": ["Jeff Goldblum", "Geena Davis"],
@@ -125,7 +125,7 @@
     {
       "id": 14,
       "title": "The Lives of Others",
-      "picture": "/img/14-la-vie-des-autres.png",
+      "picture": "img/14-la-vie-des-autres.png",
       "year": "2006",
       "director": "Florian H. von Donnersmarck",
       "mainActors": ["Ulrich Mühe", "Martina Gedeck"],
@@ -134,7 +134,7 @@
     {
       "id": 15,
       "title": "Logan's run",
-      "picture": "/img/15-lage-de-cristal.webp",
+      "picture": "img/15-lage-de-cristal.webp",
       "year": "1976",
       "director": "Michael Anderson",
       "mainActors": ["Michael York", "Jenny Agutter", "Peter Ustinov"],
@@ -143,7 +143,7 @@
     {
       "id": 16,
       "title": "The Lord of the Rings: The Fellowship of the Ring",
-      "picture": "/img/462-the-lord-of-the-rings-the-fellowship-of-the-ring.avif",
+      "picture": "img/462-the-lord-of-the-rings-the-fellowship-of-the-ring.avif",
       "year": "2001",
       "director": "Peter Jackson",
       "mainActors": [
@@ -157,7 +157,7 @@
     {
       "id": 17,
       "title": "The Addams Family",
-      "picture": "/img/131-la-famille-addams.jpg",
+      "picture": "img/131-la-famille-addams.jpg",
       "year": "1991",
       "director": "Barry Sonnenfled",
       "mainActors": ["Anjelica Huston", "Raul Julia", "Christopher Lloyd"],
@@ -166,7 +166,7 @@
     {
       "id": 18,
       "title": "Rosemary's Baby",
-      "picture": "/img/133-rosemarys-baby.jpg",
+      "picture": "img/133-rosemarys-baby.jpg",
       "year": "1968",
       "director": "Roman Polanski",
       "mainActors": ["Mia Farrow", "John Cassavetes"],
@@ -175,7 +175,7 @@
     {
       "id": 19,
       "title": "Children of Men",
-      "picture": "/img/19-les-fils-de-lhomme.webp",
+      "picture": "img/19-les-fils-de-lhomme.webp",
       "year": "2006",
       "director": "Alfonso Cuaron",
       "mainActors": [
@@ -189,7 +189,7 @@
     {
       "id": 20,
       "title": "Dangerous Liaisons",
-      "picture": "/img/20-les-liaisons-dangereuses.jpg",
+      "picture": "img/20-les-liaisons-dangereuses.jpg",
       "year": "1988",
       "director": "Stephen Frears",
       "mainActors": [
@@ -203,7 +203,7 @@
     {
       "id": 21,
       "title": "Looper",
-      "picture": "/img/21-looper.jpg",
+      "picture": "img/21-looper.jpg",
       "year": "2012",
       "director": "Rian Johnson",
       "mainActors": [
@@ -217,7 +217,7 @@
     {
       "id": 22,
       "title": "Midsommar",
-      "picture": "/img/22-midsommar.webp",
+      "picture": "img/22-midsommar.webp",
       "year": "2019",
       "director": "Ari Aster",
       "mainActors": [
@@ -231,7 +231,7 @@
     {
       "id": 23,
       "title": "Millenium",
-      "picture": "/img/23-millenium.jpg",
+      "picture": "img/23-millenium.jpg",
       "year": "2009",
       "director": "Niels Arden Oplev",
       "mainActors": ["Noomi Rapace", "Michael Nyqvist"],
@@ -240,7 +240,7 @@
     {
       "id": 24,
       "title": "Minority report",
-      "picture": "/img/24-minority-report.webp",
+      "picture": "img/24-minority-report.webp",
       "year": "2002",
       "director": "Steven Spielberg",
       "mainActors": [
@@ -254,7 +254,7 @@
     {
       "id": 25,
       "title": "Volver",
-      "picture": "/img/64-volver.webp",
+      "picture": "img/64-volver.webp",
       "year": "2006",
       "director": "Pedro Almodovar",
       "mainActors": ["Penelope Cruz", "Carmen Maura"],
@@ -263,7 +263,7 @@
     {
       "id": 26,
       "title": "Music box",
-      "picture": "/img/26-music-box.avif",
+      "picture": "img/26-music-box.avif",
       "year": "1989",
       "director": "Costa Gavras",
       "mainActors": ["Jessica Lange", "Armin Mueller-Stahl"],
@@ -272,7 +272,7 @@
     {
       "id": 27,
       "title": "The Searchers",
-      "picture": "/img/156-la-prisonnière-du-désert.avif",
+      "picture": "img/156-la-prisonnière-du-désert.avif",
       "year": "1956",
       "director": "John Ford",
       "mainActors": ["John Wayne", "Natalie Wood"],
@@ -281,7 +281,7 @@
     {
       "id": 28,
       "title": "Groundhog Day",
-      "picture": "/img/48-un-jour-sans-fin.jpg",
+      "picture": "img/48-un-jour-sans-fin.jpg",
       "year": "1993",
       "director": "Harold Ramis",
       "mainActors": ["Bill Murray", "Andie MacDowell"],
@@ -290,7 +290,7 @@
     {
       "id": 29,
       "title": "The Nightmare Before Christmas",
-      "picture": "/img/195-létrange-noel-de-monsieur-jack.webp",
+      "picture": "img/195-létrange-noel-de-monsieur-jack.webp",
       "year": "1994",
       "director": "Henry Selick",
       "mainActors": [],
@@ -299,7 +299,7 @@
     {
       "id": 30,
       "title": "Metropolis",
-      "picture": "/img/79-metropolis.jpg",
+      "picture": "img/79-metropolis.jpg",
       "year": "1927",
       "director": "Fritz Lang",
       "mainActors": ["Brigitte Helm", "Alfred Abel", "Rudolf Klein-Rogge"],

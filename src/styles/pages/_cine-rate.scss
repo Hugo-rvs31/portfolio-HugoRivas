@@ -1,32 +1,57 @@
 .cinerate {
-  .user-setup {
-    background: red;
-    margin-top: 100px;
-
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    h1 {
-    }
-    input {
-      border: none;
-      outline: none;
-      height: 30px;
-    }
-    .avatars {
-      display: flex;
-      gap: 10px;
-    }
-    button {
-      padding: 20px;
-    }
-  }
   .cinerate-inner {
-    margin-top: 200px;
     .top-bar {
-      background: blue;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      text-align: center;
+      margin: 100px auto;
+      border: 2px solid rgb(168, 255, 168);
+      width: 60%;
+      border-radius: 30px;
+      padding: 20px 0;
+      @media (max-width: 700px) {
+        width: 80%;
+      }
+      @media (max-width: 560px) {
+        width: 95%;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+
+      button {
+        padding: 10px 16px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        letter-spacing: 1px;
+      }
+
+      input {
+        background: rgb(206, 255, 206);
+        border: none;
+        outline: none;
+        height: 40px;
+        width: 30%;
+        border-radius: 10px;
+        padding-left: 10px;
+        &::placeholder {
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .movies-grid {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      margin: 70px auto;
+      gap: 60px;
     }
   }
 }

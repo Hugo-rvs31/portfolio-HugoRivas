@@ -23,7 +23,7 @@ const MovieCard = ({
           className={`favorite-btn ${isFavorite ? "active" : ""}`}
           onClick={() => toggleFavorite(film.id)}
         >
-          <Heart fill={isFavorite ? "red" : "transparent"} />
+          <Heart fill={isFavorite ? "red" : "transparent"} id="heart" />
         </button>
       </div>
 
@@ -39,8 +39,6 @@ const MovieCard = ({
         <p>
           <strong>Actors:</strong> {film.mainActors.join(", ")}
         </p>
-
-        <p>{film.synopsis}</p>
 
         <RatingStars
           rating={rating}

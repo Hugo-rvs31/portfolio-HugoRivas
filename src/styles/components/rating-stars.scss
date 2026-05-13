@@ -1,0 +1,35 @@
+.rating-stars {
+  display: flex;
+  gap: 4px;
+
+  button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .star {
+    width: 24px;
+    height: 24px;
+
+    stroke: #ffd43b;
+    stroke-width: 2;
+
+    transition:
+      transform 0.15s ease,
+      fill 0.15s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &.active {
+      fill: #ffd43b;
+    }
+  }
+}

@@ -25,7 +25,7 @@ const CommentSection = ({ comments, onAddComment }) => {
         {comments.map((comment) => (
           <div className="comment" key={comment.id}>
             <div className="comment-header">
-              <span>{comment.avatar}</span>
+              <span className="icon">{comment.avatar}</span>
 
               <strong>{comment.username}</strong>
 

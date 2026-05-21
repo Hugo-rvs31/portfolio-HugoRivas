@@ -38,10 +38,15 @@
         border-radius: 10px;
         padding-left: 10px;
         &::placeholder {
+          background-color: red;
+          color: yellow;
+          height: 30px;
         }
 
         &:focus {
           outline: none;
+          background: pink;
+          color: green;
         }
       }
     }

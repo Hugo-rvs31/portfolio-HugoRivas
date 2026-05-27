@@ -1,5 +1,7 @@
 .cinerate {
+  background: red;
   .cinerate-inner {
+    background: yellow;
     .top-bar {
       display: flex;
       flex-direction: column;
@@ -38,10 +40,6 @@
         border-radius: 10px;
         padding-left: 10px;
         &::placeholder {
-          background-color: yellow;
-          height: 20px;
-          color: greenyellow;
-          line-height: 300px;
         }
 
         &:focus {

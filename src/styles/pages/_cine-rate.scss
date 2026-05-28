@@ -1,7 +1,5 @@
 .cinerate {
-  background: red;
   .cinerate-inner {
-    background: yellow;
     .top-bar {
       display: flex;
       flex-direction: column;
@@ -40,10 +38,17 @@
         border-radius: 10px;
         padding-left: 10px;
         &::placeholder {
+          background: yellow;
+          height: 300px;
+          width: 200px;
         }
 
         &:focus {
           outline: none;
+          background: pink;
+          height: 300px;
+          width: 300px;
+          letter-spacing: 3px;
         }
       }
     }

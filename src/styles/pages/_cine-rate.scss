@@ -30,25 +30,18 @@
       }
 
       input {
-        background: rgb(206, 255, 206);
-        border: 1px solid pink;
+        background: rgba(206, 255, 206, 0.514);
+        border: rgba(128, 128, 128, 0.329) 1px solid;
         outline: 0lvh;
         height: 50px;
         width: 40%;
         border-radius: 10px;
         padding-left: 10px;
         &::placeholder {
-          background: yellow;
-          height: 300px;
-          width: 200px;
         }
 
         &:focus {
           outline: none;
-          background: pink;
-          height: 300px;
-          width: 300px;
-          letter-spacing: 3px;
         }
       }
     }

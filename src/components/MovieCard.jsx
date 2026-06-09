@@ -47,7 +47,8 @@ const MovieCard = ({
 
         <CommentSection
           comments={comments}
-          onAddComment={(text) => addComment(film.id, text)}
+          rating={rating}
+          onAddComment={(text) => addComment(film.id, text, rating)}
         />
       </div>
     </div>

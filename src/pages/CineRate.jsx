@@ -70,7 +70,7 @@ const CineRate = () => {
     });
   };
 
-  const handleAddComment = (filmId, text) => {
+  const handleAddComment = (filmId, text, rating) => {
     if (!text.trim()) return;
 
     const newComment = {
@@ -78,6 +78,7 @@ const CineRate = () => {
       username: user.username,
       avatar: user.avatar,
       text,
+      rating,
       date: new Date().toLocaleString(),
     };
 

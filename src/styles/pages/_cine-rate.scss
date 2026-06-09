@@ -7,7 +7,7 @@
       align-items: center;
       text-align: center;
       margin: 100px auto;
-      border: 2px solid rgb(168, 255, 168);
+      background: rgba(168, 255, 168, 0.445);
       width: 60%;
       border-radius: 30px;
       padding: 20px 0;
@@ -30,7 +30,7 @@
       }
 
       input {
-        background: rgba(206, 255, 206, 0.514);
+        background: rgb(255, 255, 255);
         border: rgba(128, 128, 128, 0.329) 1px solid;
         outline: 0lvh;
         height: 50px;
@@ -52,6 +52,9 @@
       width: 80%;
       margin: 70px auto;
       gap: 60px;
+      @media (max-width: 370px) {
+        width: 95%;
+      }
     }
   }
 }

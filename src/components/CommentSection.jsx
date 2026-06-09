@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-const CommentSection = ({ comments, onAddComment }) => {
+const CommentSection = ({ comments, rating, onAddComment }) => {
   const [text, setText] = useState("");
 
   const handleSubmit = () => {
     if (!text.trim()) return;
 
-    onAddComment(text);
+    onAddComment(text, rating);
 
     setText("");
   };
@@ -28,6 +28,8 @@ const CommentSection = ({ comments, onAddComment }) => {
               <span className="icon">{comment.avatar}</span>
 
               <strong>{comment.username}</strong>
+
+              {comment.rating && <span>{"⭐".repeat(comment.rating)}</span>}
 
               <span>{comment.date}</span>
             </div>

@@ -24,6 +24,10 @@
       height: 250px;
       width: 350px;
     }
+    @media (max-width: 400px) {
+      width: 95%;
+      height: 200px;
+    }
     img {
       object-fit: cover;
       height: 100%;

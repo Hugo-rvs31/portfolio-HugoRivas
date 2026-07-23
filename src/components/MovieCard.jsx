@@ -18,6 +18,7 @@ const MovieCard = ({
     <div className="movie-card">
       <div className="movie-image">
         <img src={film.picture} alt={film.title} />
+        <h3 className="movie-title">{film.title}</h3>
 
         <button
           className={`favorite-btn ${isFavorite ? "active" : ""}`}

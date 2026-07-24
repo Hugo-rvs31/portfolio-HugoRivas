@@ -83,17 +83,7 @@ const MoviesLibrary = () => {
             onClick={() => setSelectedFilm(film)}
           >
             <img src={film.picture} alt={film.title} />
-            <h3
-              className="h3-title-before-overlay"
-              style={{
-                color: "red",
-                background: "yellow",
-                fontSize: "28px",
-                padding: "10px",
-              }}
-            >
-              {film.title}
-            </h3>
+            <h3 className="h3-title-before-overlay">{film.title}</h3>
 
             <div className="movie-content">
               <h3>

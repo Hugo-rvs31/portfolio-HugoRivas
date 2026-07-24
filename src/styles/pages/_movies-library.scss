@@ -39,11 +39,13 @@
   }
 
   .movie-card {
+    max-height: 370px;
     cursor: pointer;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
 
     img {
       width: 100%;
@@ -52,6 +54,13 @@
     }
     .h3-title-before-overlay {
       position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      text-align: center;
+      line-height: 20px;
+      width: 90%;
     }
 
     .movie-content {
